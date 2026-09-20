@@ -1,5 +1,10 @@
-// ZERO API client — connects to Express backend via /api
-const API_BASE = "/api";
+// ZERO API client — use the managed Manus backend in production and same-origin locally.
+const API_ORIGIN = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+const API_BASE = `${API_ORIGIN}/api`;
+
+function apiUrl(path: string) {
+  return `${API_BASE}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export function getToken(): string | null {
   return localStorage.getItem("zero_token");
@@ -37,11 +42,11 @@ export function qs(params: Record<string, any>): string {
 export function getImageUrl(url: string | null | undefined): string {
   if (!url) return "/zero-logo.png";
   if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  if (url.startsWith("/api/")) return url;
-  if (url.startsWith("/uploads/")) return `/api${url}`;
-  if (url.startsWith("uploads/")) return `/api/${url}`;
+  if (url.startsWith("/api/")) return `${API_ORIGIN}${url}`;
+  if (url.startsWith("/uploads/")) return `${API_BASE}${url}`;
+  if (url.startsWith("uploads/")) return `${API_BASE}/${url}`;
   if (url.startsWith("/")) return url;
-  return `/api/uploads/${url}`;
+  return `${API_BASE}/uploads/${url}`;
 }
 
 export async function api<T = any>(path: string, options: RequestInit = {}): Promise<T> {
@@ -54,7 +59,7 @@ export async function api<T = any>(path: string, options: RequestInit = {}): Pro
   if (!isForm) headers["Content-Type"] = "application/json";
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
-  const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
+  const res = await fetch(apiUrl(path), { ...options, headers, credentials: "include" });
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
