@@ -30,7 +30,7 @@ const channels = [
     desc: "الجروب الرئيسي - نقاشات تقنية • مساعدة متبادلة • فرص عمل • مشاريع مشتركة", 
     members: "580+", 
     online: 45,
-    href: "https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9", 
+    href: "/contact", 
     color: "border-green-400/30 bg-green-400/5 hover:bg-green-400/10", 
     icon: "💬",
     type: "group",
@@ -42,7 +42,7 @@ const channels = [
     desc: "إعلانات حصرية • نصائح يومية • تحديثات المشاريع • فرص تعلم مجانية", 
     members: "1,200+", 
     online: null,
-    href: "https://whatsapp.com/channel/0029Vaxa4398V0tmGkGYkp2y", 
+    href: "/contact", 
     color: "border-primary/30 bg-primary/5 hover:bg-primary/10", 
     icon: "📢",
     type: "channel",
@@ -54,7 +54,7 @@ const channels = [
     desc: "مخصص للكورسات - Python, freeCodeCamp, AWS - نساعد بعض ونتابع التقدم!",
     members: "120+",
     online: 23,
-    href: "https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9",
+    href: "/contact",
     color: "border-blue-400/30 bg-blue-400/5 hover:bg-blue-400/10",
     icon: "📚",
     type: "group",
@@ -191,24 +191,6 @@ export default function Community() {
 
     setMessages([...messages, msg]);
     setNewMessage("");
-
-    // Simulate reply after 2 seconds
-    setTimeout(() => {
-      const replies = [
-        "شكراً على مشاركتك! 💙",
-        "فكرة جميلة! جربت تستخدم...؟",
-        "👍 اتفق معك!",
-        "سؤال ممتاز! حد ثاني عنده إضافة؟",
-      ];
-      const replyMsg: ChatMessage = {
-        id: Date.now() + 1,
-        user: { name: "ZERO Bot", avatar: "Z", role: "Assistant", badge: "🤖" },
-        content: replies[Math.floor(Math.random() * replies.length)] + "\n\n*هذا رد تجريبي - في الجروب الحقيقي هتلاقي ردود حقيقية!*",
-        time: "الآن",
-        reactions: [{ emoji: "🤖", count: 1 }],
-      };
-      setMessages(prev => [...prev, replyMsg]);
-    }, 2000);
   };
 
   const handleReaction = (msgId: number, emoji: string) => {
@@ -271,13 +253,13 @@ export default function Community() {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3 justify-center mt-6">
                 <Button className="bg-green-500 text-white hover:bg-green-600 glow-cyan" size="lg" asChild>
-                  <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank">
+                  <a href="/contact" target="_blank">
                     <MessageCircle size={16} className="ml-2" />
                     انضم للجروب (واتساب حقيقي)
                   </a>
                 </Button>
                 <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/5" asChild>
-                  <a href="https://whatsapp.com/channel/0029Vaxa4398V0tmGkGYkp2y" target="_blank">
+                  <a href="/contact" target="_blank">
                     <Share2 size={16} className="ml-2" />
                     القناة الرسمية
                   </a>
@@ -466,7 +448,7 @@ export default function Community() {
                       <Search size={14} />
                     </Button>
                     <a
-                      href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9"
+                      href="/contact"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 bg-green-500 text-white px-3 py-1.5 rounded-lg text-xs hover:bg-green-600 transition-all"
@@ -693,7 +675,7 @@ export default function Community() {
                   </div>
                   
                   <Button className="mt-4 w-full" asChild>
-                    <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank">
+                    <a href="/contact" target="_blank">
                       <BookOpen size={16} className="ml-2" />
                       انضم للتحدي
                     </a>
@@ -814,7 +796,7 @@ export default function Community() {
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button size="lg" className="bg-green-500 hover:bg-green-600" asChild>
-                  <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank">
+                  <a href="/contact" target="_blank">
                     <MessageCircle size={18} className="ml-2" />
                     انضم للجروب (مجاناً)
                   </a>

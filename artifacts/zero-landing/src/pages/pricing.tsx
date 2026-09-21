@@ -235,7 +235,7 @@ export default function Pricing() {
                   </ul>
 
                   <a
-                    href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9"
+                    href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full py-3 rounded-xl font-mono text-sm text-center transition-all ${plan.ctaStyle}`}
@@ -258,7 +258,7 @@ export default function Pricing() {
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-2xl font-bold mb-3">{t("pricing.customQuote")}</h2>
           <p className="text-muted-foreground mb-6 text-sm">{t("pricing.customQuoteDesc")}</p>
-          <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer"
+          <a href="/contact" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all">
             {t("pricing.getCustomQuote")} ←
           </a>

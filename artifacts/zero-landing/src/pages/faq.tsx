@@ -167,7 +167,7 @@ export default function FAQ() {
                 <p className="text-muted-foreground text-sm mb-5">{t("faq.stillHelpDesc")}</p>
                 <div className="flex gap-3 justify-center flex-wrap">
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-cyan" asChild>
-                    <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer">
+                    <a href="/contact" target="_blank" rel="noopener noreferrer">
                       WhatsApp
                     </a>
                   </Button>

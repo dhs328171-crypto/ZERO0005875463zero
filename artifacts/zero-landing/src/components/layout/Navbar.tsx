@@ -43,6 +43,11 @@ export function Navbar() {
     return () => document.removeEventListener("click", handler);
   }, [userMenuOpen, moreMenuOpen]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.portfolio"), path: "/portfolio" },
@@ -54,18 +59,9 @@ export function Navbar() {
   ];
 
   const moreLinks = [
-    { name: t("nav.clients"), path: "/clients", icon: <Users size={13} /> },
-    { name: t("nav.testimonials"), path: "/testimonials", icon: <Zap size={13} /> },
-    { name: t("nav.partners"), path: "/partners", icon: <Package size={13} /> },
     { name: t("nav.cv"), path: "/cv", icon: <FileText size={13} /> },
     { name: "الشهادات", path: "/certificates", icon: <Award size={13} /> },
-    { name: t("nav.tools"), path: "/tools", icon: <Wrench size={13} /> },
-    { name: t("nav.calculator"), path: "/calculator", icon: <Calculator size={13} /> },
-    { name: t("nav.resources"), path: "/resources", icon: <BookOpen size={13} /> },
     { name: t("nav.faq"), path: "/faq", icon: <HelpCircle size={13} /> },
-    { name: t("nav.support"), path: "/support", icon: <MessageCircle size={13} /> },
-    { name: t("nav.community"), path: "/community", icon: <Users size={13} /> },
-    { name: t("nav.roadmap"), path: "/roadmap", icon: <MapPin size={13} /> },
   ];
 
   const handleLogout = () => {
@@ -264,13 +260,17 @@ export function Navbar() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
-             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-               className="lg:hidden holo-surface border-x-0 border-t-0 border-b border-border overflow-hidden"
-            >
-              <div className="container mx-auto px-4 py-5 flex flex-col gap-4">
+            <>
+              <motion.button type="button" aria-label="إغلاق القائمة" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 top-[4.5rem] z-40 bg-background/70 backdrop-blur-sm lg:hidden" />
+              <motion.div
+                initial={{ opacity: 0, x: "100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "100%" }}
+                transition={{ duration: 0.22 }}
+                dir="rtl"
+                className="fixed top-[4.5rem] bottom-0 right-0 z-50 w-[86vw] max-w-sm lg:hidden holo-surface border-s border-border overflow-y-auto overscroll-contain"
+              >
+              <div className="min-h-full px-4 py-5 pb-10 flex flex-col gap-4">
                 {isAuthenticated && user && (
                   <div className="flex items-center gap-3 bg-background/50 rounded-xl p-3 border border-border">
                     <div className="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center font-bold text-primary">
@@ -288,12 +288,12 @@ export function Navbar() {
                   <CurrencySwitcher />
                 </div>
 
-                <ul className="flex flex-col gap-1">
+                <ul className="flex flex-col gap-1.5">
                   {[...navLinks, ...moreLinks].map((link) => (
                     <li key={link.path}>
                       <Link href={link.path}>
                         <div
-                          className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
+                          className={`flex items-center justify-between min-h-12 px-4 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                             location === link.path
                               ? "text-primary bg-primary/10 border border-primary/20"
                               : "text-muted-foreground hover:text-foreground hover:bg-background/50"
@@ -346,7 +346,8 @@ export function Navbar() {
                   )}
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </header>

@@ -397,7 +397,7 @@ export default function Clients() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer"
+                <a href="/contact" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all">
                   ابدأ مشروعك الآن <ArrowLeft size={16} className="mr-1" />
                 </a>

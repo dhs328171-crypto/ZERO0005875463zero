@@ -51,7 +51,7 @@ export function CTASection() {
               className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground font-mono px-10 h-14 text-base"
               asChild
             >
-              <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer">
+              <a href="/contact" target="_blank" rel="noopener noreferrer">
                 WhatsApp
               </a>
             </Button>

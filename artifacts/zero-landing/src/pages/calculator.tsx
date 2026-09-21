@@ -413,7 +413,7 @@ export default function ProjectCalculator() {
                     </Link>
 
                     <a
-                      href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9"
+                      href="/contact"
                       target="_blank" rel="noopener noreferrer"
                       className="w-full border border-green-400/40 text-green-400 py-2.5 rounded-xl font-mono text-sm hover:bg-green-400/10 transition-all flex items-center justify-center gap-2"
                     >

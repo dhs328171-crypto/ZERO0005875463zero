@@ -74,14 +74,14 @@ export default function Contact() {
       icon: <MessageCircle size={16} className="text-green-400" />,
       label: t("contact.whatsapp"),
       val: t("contact.whatsappDesc"),
-      href: "https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9",
+      href: "/contact",
       color: "border-green-400/30 bg-green-400/5",
     },
     {
       icon: <Mail size={16} className="text-primary" />,
       label: t("contact.email"),
       val: "zero@dev.com",
-      href: "mailto:zero@dev.com",
+      href: "/contact",
       color: "border-primary/30 bg-primary/5",
     },
     {
@@ -282,7 +282,7 @@ export default function Contact() {
                 </h3>
                 <div className="space-y-4">
                   <a
-                    href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9"
+                    href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 bg-background border border-border rounded-xl hover:border-green-400/40 transition-all"
@@ -297,7 +297,7 @@ export default function Contact() {
                   </a>
 
                   <a
-                    href="mailto:zero@dev.com"
+                    href="/contact"
                     className="flex items-center gap-3 p-3 bg-background border border-border rounded-xl hover:border-primary/40 transition-all"
                   >
                     <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center">

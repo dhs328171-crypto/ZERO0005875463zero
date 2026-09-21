@@ -32,7 +32,7 @@ export function FloatingCTA() {
                 <p className="text-sm text-foreground mb-3 text-right font-semibold">تواصل معي الآن</p>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9"
+                    href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-xs font-mono transition-colors"
@@ -41,7 +41,7 @@ export function FloatingCTA() {
                     جروب الواتساب
                   </a>
                   <a
-                    href="https://whatsapp.com/channel/0029Vaxa4398V0tmGkGYkp2y"
+                    href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-primary/20 border border-primary/40 hover:bg-primary/30 text-primary px-3 py-2 rounded-lg text-xs font-mono transition-colors"

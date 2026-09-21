@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MessageCircle, Mail, ArrowUp, Zap } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { useT } from "@/contexts/i18n-context";
 
 export function Footer() {
@@ -23,20 +23,6 @@ export function Footer() {
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
               {t("footer.brandDesc")}
             </p>
-            <div className="flex items-center gap-3">
-              <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 hover:bg-green-500/20 transition-all zero-button">
-                <MessageCircle size={16} />
-              </a>
-              <a href="https://whatsapp.com/channel/0029Vaxa4398V0tmGkGYkp2y" target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary hover:bg-primary/20 transition-all zero-button">
-                <Zap size={16} />
-              </a>
-              <a href="mailto:zero@dev.com"
-                className="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 hover:bg-blue-500/20 transition-all zero-button">
-                <Mail size={16} />
-              </a>
-            </div>
           </div>
 
           {/* Quick links - split into 2 columns */}
@@ -52,9 +38,7 @@ export function Footer() {
                   { name: t("nav.pricing"), path: "/pricing" },
                   { name: t("nav.about"), path: "/about" },
                   { name: t("nav.contact"), path: "/contact" },
-                  { name: t("nav.testimonials"), path: "/testimonials" },
-                  { name: t("nav.clients"), path: "/clients" },
-                  { name: t("nav.partners"), path: "/partners" },
+                  { name: "الشهادات", path: "/certificates" },
                 ].map((l) => (
                   <li key={l.path}>
                     <Link href={l.path}>
@@ -69,12 +53,6 @@ export function Footer() {
               <ul className="space-y-3">
                 {[
                   { name: t("nav.cv"), path: "/cv" },
-                  { name: t("nav.tools"), path: "/tools" },
-                  { name: t("nav.calculator"), path: "/calculator" },
-                  { name: t("nav.community"), path: "/community" },
-                  { name: t("nav.resources"), path: "/resources" },
-                  { name: t("nav.roadmap"), path: "/roadmap" },
-                  { name: t("nav.changelog"), path: "/changelog" },
                   { name: t("nav.faq"), path: "/faq" },
                   { name: t("lg.terms"), path: "/terms" },
                   { name: t("lg.privacy"), path: "/privacy" },
@@ -94,24 +72,8 @@ export function Footer() {
             <h3 className="font-mono text-xs text-primary tracking-widest uppercase mb-5">{t("footer.contactTitle")}</h3>
             <div className="space-y-4">
               <div>
-                <p className="text-xs text-muted-foreground/60 font-mono mb-1">WhatsApp</p>
-                <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  ZERO Group
-                </a>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground/60 font-mono mb-1">Channel</p>
-                <a href="https://whatsapp.com/channel/0029Vaxa4398V0tmGkGYkp2y" target="_blank" rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  ZERO Channel
-                </a>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground/60 font-mono mb-1">Email</p>
-                <a href="mailto:zero@dev.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  zero@dev.com
-                </a>
+                <p className="text-xs text-muted-foreground/60 font-mono mb-1">CONTACT</p>
+                <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">نموذج التواصل داخل الموقع</Link>
               </div>
               <div className="flex items-center gap-1.5 mt-4">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />

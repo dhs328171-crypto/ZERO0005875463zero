@@ -157,7 +157,7 @@ export default function LandingGate() {
               <h3 className="text-xl font-bold mb-2">{t("lg.contactDirect")}</h3>
               <p className="text-muted-foreground text-sm mb-5">{t("lg.contactDesc")}</p>
               <Button className="bg-green-500 hover:bg-green-600 text-white" asChild>
-                <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer">
+                <a href="/contact" target="_blank" rel="noopener noreferrer">
                   <MessageCircle size={15} className="ml-2" />
                   {t("lg.whatsappCta")}
                 </a>

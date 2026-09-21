@@ -402,11 +402,11 @@ export default function CV() {
                   </div>
 
                   <div className="flex justify-center gap-3 mt-5 pt-4 border-t border-border">
-                    <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer"
+                    <a href="/contact" target="_blank" rel="noopener noreferrer"
                       className="w-10 h-10 rounded-xl bg-green-400/10 border border-green-400/30 flex items-center justify-center text-green-400 hover:bg-green-400/20 transition-all">
                       <MessageCircle size={16} />
                     </a>
-                    <a href="mailto:zero@dev.com" className="w-10 h-10 rounded-xl bg-blue-400/10 border border-blue-400/30 flex items-center justify-center text-blue-400 hover:bg-blue-400/20 transition-all">
+                    <a href="/contact" className="w-10 h-10 rounded-xl bg-blue-400/10 border border-blue-400/30 flex items-center justify-center text-blue-400 hover:bg-blue-400/20 transition-all">
                       <Mail size={16} />
                     </a>
                     <a href="#" className="w-10 h-10 rounded-xl bg-purple-400/10 border border-purple-400/30 flex items-center justify-center text-purple-400 hover:bg-purple-400/20 transition-all">
