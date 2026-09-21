@@ -145,7 +145,7 @@ export default function LinkRedirect() {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
         <div className="text-center max-w-md">
-          <img src="/zero-logo.png" alt="ZERO" className="h-12 w-12 mx-auto mb-4 drop-shadow-[0_0_8px_rgba(0,217,255,0.5)] rounded" />
+          <img src="/zero-logo.jpg" alt="ZERO" className="h-12 w-12 mx-auto mb-4 drop-shadow-[0_0_8px_rgba(0,217,255,0.5)] rounded" />
           <h1 className="font-bold text-lg mb-2">
             {info.title || "جارٍ التحويل…"}
           </h1>

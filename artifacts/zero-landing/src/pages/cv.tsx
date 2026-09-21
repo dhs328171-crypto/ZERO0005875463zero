@@ -382,7 +382,7 @@ export default function CV() {
                   className="bg-card border border-primary/20 rounded-2xl p-6 text-center"
                 >
                   <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 border-2 border-primary/40 flex items-center justify-center mx-auto mb-4 overflow-hidden">
-                    <img src="/zero-logo.png" alt="ZERO" className="w-full h-full object-cover p-2" />
+                    <img src="/zero-logo.jpg" alt="ZERO" className="w-full h-full object-cover p-2" />
                   </div>
                   <h2 className="font-bold text-xl mb-1">ZERO</h2>
                   <p className="text-primary font-mono text-sm mb-4">Full Stack Developer</p>

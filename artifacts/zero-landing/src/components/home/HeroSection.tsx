@@ -109,9 +109,9 @@ function ZeroBoxVisual() {
       >
         <div className="hero-box-shadow absolute inset-[8%]" aria-hidden="true" />
         <motion.img
-          src="/zero-box.png"
-          alt="ZERO Software Architect Solutions"
-          className="hero-box-image relative z-10 w-full max-w-md lg:max-w-lg xl:max-w-xl"
+          src="/zero-logo.jpg"
+          alt="ZERO — Software Architect Solutions"
+          className="hero-box-image relative z-10 w-full max-w-md lg:max-w-lg xl:max-w-xl rounded-[1.35rem] border border-primary/30 object-cover"
           style={{ filter: "drop-shadow(0 18px 35px rgba(0, 15, 30, .7)) drop-shadow(0 0 32px rgba(0,217,255,.28))" }}
           initial={reduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -188,10 +188,12 @@ export function HeroSection({ publicMode = false }: { publicMode?: boolean }) {
               className="hero-title text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold mb-5 leading-[1.12] tracking-[-0.045em]"
               data-testid="text-hero-title"
             >
-              {t("home.heroTitle1")}{" "}
-              <span className="hero-title-highlight text-primary">{t("home.heroTitleHighlight")}</span>
-              <br />
-              <span className="hero-typing-line"><TypingEffect words={words} className="text-primary" /></span>
+              <span className="block">{t("home.heroTitle1")}</span>
+              <span className="hero-title-highlight block text-primary">{t("home.heroTitleHighlight")}</span>
+              <span className="hero-typing-line mt-2 block min-h-[1.2em]">
+                <span className="text-muted-foreground/70">// </span>
+                <TypingEffect words={words} className="text-primary" speed={72} deleteSpeed={34} pauseTime={2100} />
+              </span>
             </motion.h1>
 
             <motion.p

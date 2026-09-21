@@ -93,7 +93,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
       >
         {/* Logo area */}
         <div className="flex items-center gap-3 px-3 h-16 border-b border-border flex-shrink-0">
-          <img src="/zero-logo.png" alt="ZERO" className="h-8 w-8 flex-shrink-0 drop-shadow-[0_0_8px_rgba(0,217,255,0.5)] rounded" />
+          <img src="/zero-logo.jpg" alt="ZERO" className="h-8 w-8 flex-shrink-0 drop-shadow-[0_0_8px_rgba(0,217,255,0.5)] rounded" />
           <AnimatePresence>
             {sidebarOpen && (
               <motion.div
@@ -271,7 +271,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
             <Link href="/admin/profile">
               <div className="flex items-center gap-2 bg-background border border-border rounded-lg px-3 py-1.5 cursor-pointer hover:border-primary/40 transition-colors">
                 <div className="w-6 h-6 rounded-full overflow-hidden border border-primary/40 flex-shrink-0">
-                  <img src="/zero-logo.png" alt="avatar" className="w-full h-full object-cover" />
+                  <img src="/zero-logo.jpg" alt="avatar" className="w-full h-full object-cover" />
                 </div>
                 <span className="text-sm font-mono text-foreground hidden sm:block">{user?.name ?? user?.email}</span>
                 <span className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0" />

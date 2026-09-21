@@ -12,12 +12,12 @@ export function CTASection() {
       <div className="absolute inset-0 bg-gradient-radial from-primary/8 via-transparent to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-      {/* ZERO box decorative — small, top right */}
+      {/* ZERO identity mark — small, top right */}
       <motion.img
-        src="/zero-box.png"
-        alt=""
+        src="/zero-logo.jpg"
+        alt="ZERO"
         aria-hidden
-        className="absolute top-0 right-8 w-52 opacity-20 pointer-events-none select-none"
+        className="absolute top-0 right-8 h-40 w-28 rounded-xl object-cover object-center opacity-20 pointer-events-none select-none"
         style={{ filter: "drop-shadow(0 0 20px rgba(0,217,255,0.3))" }}
         animate={{ y: [-6, 6, -6] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -51,9 +51,7 @@ export function CTASection() {
               className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground font-mono px-10 h-14 text-base"
               asChild
             >
-              <a href="/contact" target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
+              <Link href="/contact">تواصل داخلي</Link>
             </Button>
           </div>
           <p className="mt-6 text-xs text-muted-foreground font-mono">

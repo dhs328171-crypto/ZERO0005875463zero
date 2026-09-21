@@ -9,13 +9,13 @@ interface PageSeo {
 }
 
 const initialPages: PageSeo[] = [
-  { id: "home", label: "الرئيسية", path: "/", title: "ZERO — مطور ويب احترافي | Software Architect Solutions", description: "أبني مواقع وتطبيقات رقمية تتفوق على التوقعات. خبرة 5+ سنوات في React، Next.js، Node.js.", keywords: "مطور ويب، برمجة مواقع، تطوير تطبيقات، React، Next.js، السعودية", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/", index: true },
-  { id: "portfolio", label: "الأعمال", path: "/portfolio", title: "أعمال ZERO — مشاريع ويب احترافية", description: "معرض أعمال يضم 9+ مشاريع حقيقية في التجارة الإلكترونية، لوحات التحكم، وتطبيقات الويب.", keywords: "معرض أعمال، مشاريع ويب، تطوير متاجر إلكترونية", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/portfolio", index: true },
-  { id: "about", label: "من أنا", path: "/about", title: "من أنا — ZERO | مطور Full Stack", description: "تعرف على رحلة ZERO في تطوير الويب. خبرة، مهارات، وقيم مهنية.", keywords: "مطور سعودي، Full Stack، React Developer", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/about", index: true },
-  { id: "services", label: "الخدمات", path: "/services", title: "خدمات ZERO — تطوير مواقع ومتاجر وتطبيقات", description: "خدمات تطوير شاملة: مواقع ويب، متاجر إلكترونية، تطبيقات موبايل، لوحات تحكم.", keywords: "خدمات برمجة، تطوير موقع، متجر إلكتروني", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/services", index: true },
-  { id: "pricing", label: "الأسعار", path: "/pricing", title: "أسعار ZERO — باقات شفافة بدون رسوم مخفية", description: "3 باقات واضحة تناسب كل ميزانية. اعرف ما ستحصل عليه بالضبط قبل البداية.", keywords: "أسعار تطوير مواقع، تكلفة موقع ويب، أسعار برمجة", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/pricing", index: true },
-  { id: "blog", label: "المدونة", path: "/blog", title: "مدونة ZERO — مقالات تقنية أسبوعية", description: "مقالات تقنية متميزة في React، Next.js، TypeScript، وأحدث تقنيات الويب.", keywords: "مدونة تقنية، مقالات برمجة، React، TypeScript", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/blog", index: true },
-  { id: "contact", label: "التواصل", path: "/contact", title: "تواصل مع ZERO — استشارة مجانية", description: "تواصل معي لمناقشة مشروعك. استشارة مجانية وعرض سعر خلال 24 ساعة.", keywords: "تواصل مطور ويب، استشارة مجانية، طلب مشروع", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/contact", index: true },
+  { id: "home", label: "الرئيسية", path: "/", title: "ZERO — مطور ويب احترافي | Software Architect Solutions", description: "أبني مواقع وتطبيقات رقمية تتفوق على التوقعات. خبرة 5+ سنوات في React، Next.js، Node.js.", keywords: "مطور ويب، برمجة مواقع، تطوير تطبيقات، React، Next.js، السعودية", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/", index: true },
+  { id: "portfolio", label: "الأعمال", path: "/portfolio", title: "أعمال ZERO — مشاريع ويب احترافية", description: "معرض أعمال يضم 9+ مشاريع حقيقية في التجارة الإلكترونية، لوحات التحكم، وتطبيقات الويب.", keywords: "معرض أعمال، مشاريع ويب، تطوير متاجر إلكترونية", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/portfolio", index: true },
+  { id: "about", label: "من أنا", path: "/about", title: "من أنا — ZERO | مطور Full Stack", description: "تعرف على رحلة ZERO في تطوير الويب. خبرة، مهارات، وقيم مهنية.", keywords: "مطور سعودي، Full Stack، React Developer", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/about", index: true },
+  { id: "services", label: "الخدمات", path: "/services", title: "خدمات ZERO — تطوير مواقع ومتاجر وتطبيقات", description: "خدمات تطوير شاملة: مواقع ويب، متاجر إلكترونية، تطبيقات موبايل، لوحات تحكم.", keywords: "خدمات برمجة، تطوير موقع، متجر إلكتروني", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/services", index: true },
+  { id: "pricing", label: "الأسعار", path: "/pricing", title: "أسعار ZERO — باقات شفافة بدون رسوم مخفية", description: "3 باقات واضحة تناسب كل ميزانية. اعرف ما ستحصل عليه بالضبط قبل البداية.", keywords: "أسعار تطوير مواقع، تكلفة موقع ويب، أسعار برمجة", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/pricing", index: true },
+  { id: "blog", label: "المدونة", path: "/blog", title: "مدونة ZERO — مقالات تقنية أسبوعية", description: "مقالات تقنية متميزة في React، Next.js، TypeScript، وأحدث تقنيات الويب.", keywords: "مدونة تقنية، مقالات برمجة، React، TypeScript", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/blog", index: true },
+  { id: "contact", label: "التواصل", path: "/contact", title: "تواصل مع ZERO — استشارة مجانية", description: "تواصل معي لمناقشة مشروعك. استشارة مجانية وعرض سعر خلال 24 ساعة.", keywords: "تواصل مطور ويب، استشارة مجانية، طلب مشروع", ogImage: "/zero-logo.jpg", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/contact", index: true },
 ];
 
 const scoreItems = [
@@ -177,7 +177,7 @@ export default function SeoManager() {
                 <div className="bg-white rounded-xl p-5 text-left" dir="ltr">
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-5 h-5 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                      <img src="/zero-logo.png" alt="" className="w-full h-full object-cover" />
+                      <img src="/zero-logo.jpg" alt="" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <p className="text-[10px] text-gray-600">zero.dev › {current.path}</p>
@@ -189,7 +189,7 @@ export default function SeoManager() {
               ) : (
                 <div className="bg-[#1c1c1c] rounded-xl overflow-hidden">
                   <div className="h-36 bg-gradient-to-br from-card to-background flex items-center justify-center border-b border-white/10">
-                    <img src={current.ogImage || "/zero-logo.png"} alt="" className="h-16 object-contain drop-shadow-lg" />
+                    <img src={current.ogImage || "/zero-logo.jpg"} alt="" className="h-16 object-contain drop-shadow-lg" />
                   </div>
                   <div className="p-3">
                     <p className="text-[10px] text-gray-400 uppercase">ZERO.DEV</p>

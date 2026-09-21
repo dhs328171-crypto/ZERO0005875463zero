@@ -46,7 +46,7 @@ export function PageLoader() {
           <div className="absolute inset-0 cyber-grid opacity-20" />
           <div className="relative z-10 flex flex-col items-center gap-6">
             <motion.img
-              src="/zero-logo.png"
+              src="/zero-logo.jpg"
               alt="ZERO"
               className="h-16 w-auto drop-shadow-[0_0_20px_rgba(0,217,255,0.6)]"
               animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}

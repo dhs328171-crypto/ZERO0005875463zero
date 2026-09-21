@@ -40,7 +40,7 @@ export function qs(params: Record<string, any>): string {
 
 // Resolve an image URL — handles /uploads/ paths from the backend
 export function getImageUrl(url: string | null | undefined): string {
-  if (!url) return "/zero-logo.png";
+  if (!url) return "/zero-logo.jpg";
   if (url.startsWith("http://") || url.startsWith("https://")) return url;
   if (url.startsWith("/api/")) return `${API_ORIGIN}${url}`;
   if (url.startsWith("/uploads/")) return `${API_BASE}${url}`;

@@ -138,7 +138,7 @@ export default function AdminProfile() {
                   src={getImageUrl(form.avatar)}
                   alt="ZERO"
                   className="w-full h-full rounded-2xl object-cover border-2 border-primary/40 drop-shadow-[0_0_12px_rgba(0,217,255,0.3)]"
-                  onError={(e) => { (e.target as HTMLImageElement).src = "/zero-logo.png"; }}
+                  onError={(e) => { (e.target as HTMLImageElement).src = "/zero-logo.jpg"; }}
                 />
               </div>
               <h2 className="text-lg font-bold">{form.name || "ZERO"}</h2>

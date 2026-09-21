@@ -77,7 +77,7 @@ export default function Register() {
           className="hidden lg:flex flex-col gap-6"
         >
           <div>
-            <img src="/zero-logo.png" alt="ZERO" className="h-14 w-auto mb-4 drop-shadow-[0_0_20px_rgba(0,217,255,0.5)]" />
+            <img src="/zero-logo.jpg" alt="ZERO" className="h-14 w-auto mb-4 drop-shadow-[0_0_20px_rgba(0,217,255,0.5)]" />
             <h2 className="text-3xl font-bold text-foreground mb-2">{t("auth.registerHero")}</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {t("auth.registerHeroDesc")}

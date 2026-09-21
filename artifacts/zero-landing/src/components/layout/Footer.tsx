@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 md:row-span-1 holo-surface rounded-2xl p-6">
             <div className="flex items-center gap-3 mb-5">
-              <img src="/zero-logo.png" alt="ZERO" className="h-10 w-auto drop-shadow-[0_0_8px_rgba(0,217,255,0.4)]" />
+              <img src="/zero-logo.jpg" alt="ZERO" className="h-10 w-auto drop-shadow-[0_0_8px_rgba(0,217,255,0.4)]" />
               <span className="font-mono text-xl font-bold text-primary">ZERO</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">

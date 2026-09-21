@@ -86,9 +86,10 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer group zero-button">
-              <span className="font-mono text-xl font-bold tracking-wider text-foreground group-hover:text-primary transition-colors">
-                ZERO
+              <span className="relative h-9 w-12 overflow-hidden rounded-md border border-primary/30 bg-black/60 shadow-[0_0_18px_rgba(0,217,255,.16)]">
+                <img src="/zero-logo.jpg" alt="ZERO" className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-110" />
               </span>
+              <span className="font-mono text-xl font-bold tracking-wider text-foreground group-hover:text-primary transition-colors">ZERO</span>
               <span className="hidden sm:inline text-[9px] font-mono tracking-[.2em] text-muted-foreground/60 border-s border-border ps-3">SYS / ARCH</span>
             </div>
           </Link>

@@ -132,7 +132,7 @@ export default function BlogPost() {
 
                   {/* Author */}
                   <div className="flex items-center gap-3 mb-8 pb-6 border-b border-border">
-                    <img src="/zero-logo.png" alt="ZERO" className="w-10 h-10 rounded-full border border-primary/30" />
+                    <img src="/zero-logo.jpg" alt="ZERO" className="w-10 h-10 rounded-full border border-primary/30" />
                     <div>
                       <p className="text-sm font-semibold">ZERO</p>
                       <p className="text-xs text-muted-foreground">{t("about.subtitle")}</p>

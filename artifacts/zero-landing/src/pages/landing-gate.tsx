@@ -33,7 +33,7 @@ export default function LandingGate() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-primary/15">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/zero-logo.png" alt="ZERO" className="h-9 w-auto drop-shadow-[0_0_10px_rgba(0,217,255,0.5)]" />
+            <img src="/zero-logo.jpg" alt="ZERO" className="h-9 w-auto drop-shadow-[0_0_10px_rgba(0,217,255,0.5)]" />
             <span className="font-mono font-bold text-primary">ZERO</span>
           </div>
           <div className="flex items-center gap-2">

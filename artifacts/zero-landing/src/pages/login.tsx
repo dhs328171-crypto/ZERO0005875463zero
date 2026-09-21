@@ -74,7 +74,7 @@ export default function Login() {
         {/* Logo */}
         <div className="text-center mb-8">
           <motion.img
-            src="/zero-logo.png"
+            src="/zero-logo.jpg"
             alt="ZERO"
             className="h-16 w-auto mx-auto mb-4 drop-shadow-[0_0_20px_rgba(0,217,255,0.5)]"
             animate={{ filter: ["drop-shadow(0 0 15px rgba(0,217,255,0.4))", "drop-shadow(0 0 30px rgba(0,217,255,0.7))", "drop-shadow(0 0 15px rgba(0,217,255,0.4))"] }}

@@ -70,7 +70,7 @@ export default function About() {
               <TiltCard>
                 <div className="holo-surface relative rounded-2xl border-primary/30 glow-border aspect-square max-w-sm mx-auto">
                   <img
-                    src="/zero-logo.png"
+                    src="/zero-logo.jpg"
                     alt="ZERO"
                     className="w-full h-full object-cover opacity-80"
                   />

@@ -54,7 +54,7 @@ export default function AdminLogin() {
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
             <motion.img
-              src="/zero-logo.png"
+              src="/zero-logo.jpg"
               alt="ZERO Logo"
               className="h-16 w-auto mb-4 drop-shadow-[0_0_15px_rgba(0,217,255,0.4)]"
               initial={{ scale: 0.8, opacity: 0 }}
