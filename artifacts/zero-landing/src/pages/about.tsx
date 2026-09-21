@@ -284,7 +284,7 @@ export default function About() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">هل تريد العمل معي؟</h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">تواصل الآن ونبدأ رحلة بناء مشروعك الرقمي</p>
-          <a href="https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all">
+          <a href="/contact" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all">
             تواصل معي ←
           </a>
         </div>

@@ -93,7 +93,7 @@ export default function Privacy() {
           </div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="mt-8 text-center text-xs text-muted-foreground font-mono">
-            <p>للاستفسار: <a href="mailto:zero@dev.com" className="text-primary hover:underline">zero@dev.com</a></p>
+            <p>للاستفسار: <a href="/contact" className="text-primary hover:underline">zero@dev.com</a></p>
           </motion.div>
         </div>
       </main>

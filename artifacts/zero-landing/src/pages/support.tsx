@@ -20,9 +20,9 @@ const faqs = [
 ];
 
 const contactMethods = [
-  { icon: <MessageCircle size={22} className="text-green-400" />, title: "واتساب (موصى به)", desc: "رد خلال ساعة في أوقات العمل", link: "https://chat.whatsapp.com/LkJJ5CIyE0mFdFIupB33J9", cta: "تواصل عبر واتساب", style: "border-green-400/30 hover:bg-green-400/5 text-green-400" },
-  { icon: <MessageCircle size={22} className="text-primary" />, title: "قناة ZERO", desc: "أخبار، تحديثات، وعروض حصرية", link: "https://whatsapp.com/channel/0029Vaxa4398V0tmGkGYkp2y", cta: "تابع القناة", style: "border-primary/30 hover:bg-primary/5 text-primary" },
-  { icon: <Mail size={22} className="text-blue-400" />, title: "البريد الإلكتروني", desc: "للاستفسارات الرسمية والعروض", link: "mailto:zero@dev.com", cta: "أرسل إيميل", style: "border-blue-400/30 hover:bg-blue-400/5 text-blue-400" },
+  { icon: <MessageCircle size={22} className="text-green-400" />, title: "واتساب (موصى به)", desc: "رد خلال ساعة في أوقات العمل", link: "/contact", cta: "تواصل عبر واتساب", style: "border-green-400/30 hover:bg-green-400/5 text-green-400" },
+  { icon: <MessageCircle size={22} className="text-primary" />, title: "قناة ZERO", desc: "أخبار، تحديثات، وعروض حصرية", link: "/contact", cta: "تابع القناة", style: "border-primary/30 hover:bg-primary/5 text-primary" },
+  { icon: <Mail size={22} className="text-blue-400" />, title: "البريد الإلكتروني", desc: "للاستفسارات الرسمية والعروض", link: "/contact", cta: "أرسل إيميل", style: "border-blue-400/30 hover:bg-blue-400/5 text-blue-400" },
 ];
 
 const guarantees = [

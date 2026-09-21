@@ -92,7 +92,7 @@ export default function Terms() {
             whileInView={{ opacity: 1 }}
             className="mt-8 text-center text-xs text-muted-foreground font-mono"
           >
-            <p>للاستفسار عن أي بند: <a href="mailto:zero@dev.com" className="text-primary hover:underline">zero@dev.com</a></p>
+            <p>للاستفسار عن أي بند: <a href="/contact" className="text-primary hover:underline">zero@dev.com</a></p>
           </motion.div>
         </div>
       </main>
