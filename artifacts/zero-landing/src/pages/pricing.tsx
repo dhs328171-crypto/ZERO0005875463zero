@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -234,14 +235,12 @@ export default function Pricing() {
                     ))}
                   </ul>
 
-                  <a
+                  <Link
                     href="/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className={`w-full py-3 rounded-xl font-mono text-sm text-center transition-all ${plan.ctaStyle}`}
                   >
                     {t(plan.ctaKey)}
-                  </a>
+                  </Link>
                 </motion.div>
               );
             })}
@@ -258,10 +257,10 @@ export default function Pricing() {
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-2xl font-bold mb-3">{t("pricing.customQuote")}</h2>
           <p className="text-muted-foreground mb-6 text-sm">{t("pricing.customQuoteDesc")}</p>
-          <a href="/contact" target="_blank" rel="noopener noreferrer"
+          <Link href="/contact"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all">
             {t("pricing.getCustomQuote")} ←
-          </a>
+          </Link>
         </div>
       </section>
 

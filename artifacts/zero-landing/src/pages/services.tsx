@@ -8,7 +8,7 @@ import {
   CheckCircle, ArrowLeft, Zap, Shield, Clock, Star, ChevronDown, MessageCircle,
 } from "lucide-react";
 import { useT } from "@/contexts/i18n-context";
-import { useServices, useFAQs, parseFeatures } from "@/lib/queries";
+import { useServices, useFAQs, parseFeatures, type Service } from "@/lib/queries";
 
 const PROCESS_AR = [
   { n: "01", title: "الاستكشاف", desc: "جلسة مجانية لفهم احتياجاتك وأهداف مشروعك", icon: "01" },
@@ -27,6 +27,15 @@ const PROCESS_EN = [
   { n: "06", title: "Launch", desc: "Safe deploy + 30 days of free post-launch support", icon: "06" },
 ];
 
+const CORE_SERVICES: Service[] = [
+  { id: "full-stack-platforms", title: "تطوير منصات Full Stack", icon: "Code", description: "بناء مواقع ومنصات متكاملة بواجهة سريعة وواجهات API وقاعدة بيانات وإدارة صلاحيات.", features: JSON.stringify(["React / Next.js / TypeScript", "Node.js وREST API", "قاعدة بيانات وصلاحيات", "اختبارات وتجهيز للنشر"]), price: "ابتداءً من 400$", active: true, order: 1 },
+  { id: "admin-dashboards", title: "لوحات التحكم والأنظمة الداخلية", icon: "BarChart3", description: "لوحات إدارة واضحة لمتابعة المستخدمين والطلبات والمحتوى والتحليلات من مكان واحد.", features: JSON.stringify(["RBAC وصلاحيات متعددة", "جداول وفلاتر وتقارير", "سجل نشاط وإشعارات", "تصميم متجاوب للموبايل"]), price: "حسب النطاق", active: true, order: 2 },
+  { id: "ecommerce", title: "المتاجر الإلكترونية", icon: "ShoppingCart", description: "متجر قابل للنمو مع كتالوج منتجات وسلة شراء وتجربة دفع وإدارة مخزون.", features: JSON.stringify(["كتالوج وتصنيفات", "سلة وطلبات", "تهيئة SEO", "ربط الدفع حسب الحاجة"]), price: "ابتداءً من 950$", active: true, order: 3 },
+  { id: "seo-growth", title: "SEO والنمو الرقمي", icon: "Zap", description: "تحسين بنية الموقع ومحتواه وقياس الأداء لزيادة الظهور والتحويلات دون وعود وهمية.", features: JSON.stringify(["Metadata وSchema", "Sitemap وRobots", "تحسين الأداء", "خطة محتوى قابلة للقياس"]), price: "حسب النطاق", active: true, order: 4 },
+  { id: "security", title: "الأمن السيبراني الأساسي", icon: "Shield", description: "تقوية الإعدادات وتقليل السطح المكشوف ومراجعة الصلاحيات والتعامل الآمن مع الأسرار.", features: JSON.stringify(["مراجعة الصلاحيات", "حماية النماذج وAPI", "إدارة الأسرار", "قائمة إصلاحات ذات أولوية"]), price: "حسب التقييم", active: true, order: 5 },
+  { id: "ai-automation", title: "حلول AI والأتمتة", icon: "Star", description: "إضافة وظائف ذكية وأتمتة للبحث والتصنيف والمحتوى مع واجهة قابلة للتحكم.", features: JSON.stringify(["مساعدات داخلية", "استخراج وتصنيف البيانات", "قواعد أمان ومراجعة", "قياس التكلفة والجودة"]), price: "حسب النطاق", active: true, order: 6 },
+];
+
 export default function Services() {
   const t = useT();
   const lang = t("nav.home") === "الرئيسية" ? "ar" : "en";
@@ -35,7 +44,7 @@ export default function Services() {
 
   const servicesQ = useServices();
   const faqsQ = useFAQs({});
-  const services = servicesQ.data ?? [];
+  const services = servicesQ.data?.length ? servicesQ.data : CORE_SERVICES;
   const faqs = faqsQ.data ?? [];
   const active = services[activeService];
   const process = lang === "ar" ? PROCESS_AR : PROCESS_EN;
@@ -114,14 +123,12 @@ export default function Services() {
                               </div>
                             )}
                           </div>
-                          <a
+                          <Link
                             href="/contact"
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all"
                           >
                             <MessageCircle size={16} /> {t("services.orderNow")}
-                          </a>
+                          </Link>
                         </div>
                         <div>
                           <h3 className="text-sm font-mono text-primary mb-4">// {t("services.features")}</h3>

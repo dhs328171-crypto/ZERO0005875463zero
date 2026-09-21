@@ -21,6 +21,7 @@ export default function Contact() {
   const [step, setStep] = useState<"form" | "success" | "error">("form");
   const [sending, setSending] = useState(false);
   const [touched, setTouched] = useState<Set<Field>>(new Set());
+  const isArabic = t("nav.home") === "الرئيسية";
 
   const validate = (): Errors => {
     const e: Errors = {};
@@ -72,15 +73,15 @@ export default function Contact() {
   const quickBadges = [
     {
       icon: <MessageCircle size={16} className="text-green-400" />,
-      label: t("contact.whatsapp"),
-      val: t("contact.whatsappDesc"),
+      label: isArabic ? "رسالة داخلية" : "Internal message",
+      val: isArabic ? "نموذج التواصل داخل الموقع" : "Use the secure form below",
       href: "/contact",
       color: "border-green-400/30 bg-green-400/5",
     },
     {
       icon: <Mail size={16} className="text-primary" />,
-      label: t("contact.email"),
-      val: "zero@dev.com",
+      label: isArabic ? "رد داخل الموقع" : "On-site reply",
+      val: isArabic ? "متابعة الطلب من لوحة الإدارة" : "Tracked from the admin panel",
       href: "/contact",
       color: "border-primary/30 bg-primary/5",
     },
@@ -126,8 +127,6 @@ export default function Contact() {
             <motion.a
               key={i}
               href={b.href}
-              target={b.href.startsWith("http") ? "_blank" : undefined}
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
@@ -291,8 +290,8 @@ export default function Contact() {
                       <MessageCircle size={16} className="text-green-400" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium">{t("contact.whatsapp")}</p>
-                      <p className="text-xs text-muted-foreground">{t("contact.whatsappDesc")}</p>
+                      <p className="text-sm font-medium">{isArabic ? "رسالة داخلية" : "Internal message"}</p>
+                      <p className="text-xs text-muted-foreground">{isArabic ? "نموذج التواصل داخل الموقع" : "Secure contact form"}</p>
                     </div>
                   </a>
 
@@ -304,8 +303,8 @@ export default function Contact() {
                       <Mail size={16} className="text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium">{t("contact.email")}</p>
-                      <p className="text-xs text-muted-foreground">{t("contact.emailDesc")}</p>
+                      <p className="text-sm font-medium">{isArabic ? "متابعة الطلب" : "Request tracking"}</p>
+                      <p className="text-xs text-muted-foreground">{isArabic ? "رد من داخل الموقع" : "Reply inside the site"}</p>
                     </div>
                   </a>
 
