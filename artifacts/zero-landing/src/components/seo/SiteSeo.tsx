@@ -32,8 +32,14 @@ export function SiteSeo() {
     setMeta('meta[name="description"]', "content", data.description);
     setMeta('meta[property="og:title"]', "content", data.title);
     setMeta('meta[property="og:description"]', "content", data.description);
-    setMeta('meta[property="og:url"]', "content", `${window.location.origin}${location}`);
-    setMeta('link[rel="canonical"]', "href", `${window.location.origin}${location}`);
+    const canonicalUrl = `${window.location.origin}${location}`;
+    setMeta('meta[property="og:url"]', "content", canonicalUrl);
+    setMeta('meta[property="og:type"]', "content", location.startsWith("/blog/") ? "article" : "website");
+    setMeta('meta[property="og:image"]', "content", `${window.location.origin}/opengraph.jpg`);
+    setMeta('meta[name="twitter:title"]', "content", data.title);
+    setMeta('meta[name="twitter:description"]', "content", data.description);
+    setMeta('meta[name="twitter:image"]', "content", `${window.location.origin}/opengraph.jpg`);
+    setMeta('link[rel="canonical"]', "href", canonicalUrl);
   }, [location]);
   return null;
 }
