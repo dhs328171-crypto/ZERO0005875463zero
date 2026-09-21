@@ -222,6 +222,12 @@
 
   html {
     direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    color: hsl(var(--primary-foreground));
+    background: hsl(var(--primary) / .85);
   }
 
   body {

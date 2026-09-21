@@ -82,7 +82,7 @@ export function Navbar() {
              : "bg-background/35 backdrop-blur-md"
          }`}
       >
-        <div className="container mx-auto px-4 h-[4.5rem] flex items-center justify-between">
+        <div className="container mx-auto flex h-[4.5rem] w-full max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer group zero-button">
@@ -269,7 +269,7 @@ export function Navbar() {
                 exit={{ opacity: 0, x: "100%" }}
                 transition={{ duration: 0.22 }}
                 dir="rtl"
-                className="fixed top-[4.5rem] bottom-0 right-0 z-50 w-[86vw] max-w-sm lg:hidden holo-surface border-s border-border overflow-y-auto overscroll-contain"
+                className="fixed inset-x-0 top-[4.5rem] bottom-0 z-50 w-full sm:left-auto sm:right-0 sm:w-[86vw] sm:max-w-md lg:hidden holo-surface border-s border-border overflow-y-auto overscroll-contain"
               >
               <div className="min-h-full px-4 py-5 pb-10 flex flex-col gap-4">
                 {isAuthenticated && user && (
