@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { Counter } from "@/components/ui/counter";
 import { 
-  Download, Mail, Phone, MapPin, Globe, Github, Linkedin, Calendar, Award, 
+  Download, Mail, Phone, MapPin, Globe, Calendar, Award, 
   Briefcase, Code2, GraduationCap, Star, Cpu, CheckCircle, ExternalLink,
   Trophy, Target, BookOpen, BadgeCheck as Certificate, Zap, ChevronDown, ChevronUp,
   Filter, Search, MessageCircle
@@ -389,10 +389,10 @@ export default function CV() {
                   
                   <div className="space-y-2 text-right">
                     {[
-                      { icon: <Mail size={13} className="text-primary" />, val: "zero@dev.com" },
-                      { icon: <Phone size={13} className="text-green-400" />, val: "+966 5X XXX XXXX" },
+                      { icon: <Mail size={13} className="text-primary" />, val: "التواصل عبر النموذج الداخلي" },
+                      { icon: <Phone size={13} className="text-green-400" />, val: "بيانات الاتصال عند بدء المشروع" },
                       { icon: <MapPin size={13} className="text-red-400" />, val: "الرياض، السعودية" },
-                      { icon: <Globe size={13} className="text-blue-400" />, val: "zero.dev" },
+                      { icon: <Globe size={13} className="text-blue-400" />, val: "ZERO Portfolio" },
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground justify-end">
                         <span className="font-mono">{item.val}</span>
@@ -408,12 +408,6 @@ export default function CV() {
                     </a>
                     <a href="/contact" className="w-10 h-10 rounded-xl bg-blue-400/10 border border-blue-400/30 flex items-center justify-center text-blue-400 hover:bg-blue-400/20 transition-all">
                       <Mail size={16} />
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-xl bg-purple-400/10 border border-purple-400/30 flex items-center justify-center text-purple-400 hover:bg-purple-400/20 transition-all">
-                      <Linkedin size={16} />
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-xl bg-foreground/5 border border-foreground/20 flex items-center justify-center text-foreground/60 hover:bg-foreground/10 transition-all">
-                      <Github size={16} />
                     </a>
                   </div>
                 </motion.div>
