@@ -9,13 +9,13 @@ interface PageSeo {
 }
 
 const initialPages: PageSeo[] = [
-  { id: "home", label: "الرئيسية", path: "/", title: "ZERO — مطور ويب احترافي | Software Architect Solutions", description: "أبني مواقع وتطبيقات رقمية تتفوق على التوقعات. خبرة 5+ سنوات في React، Next.js، Node.js.", keywords: "مطور ويب، برمجة مواقع، تطوير تطبيقات، React، Next.js، السعودية", ogImage: "/zero-logo.png", canonical: "https://zero.dev/", index: true },
-  { id: "portfolio", label: "الأعمال", path: "/portfolio", title: "أعمال ZERO — مشاريع ويب احترافية", description: "معرض أعمال يضم 9+ مشاريع حقيقية في التجارة الإلكترونية، لوحات التحكم، وتطبيقات الويب.", keywords: "معرض أعمال، مشاريع ويب، تطوير متاجر إلكترونية", ogImage: "/zero-logo.png", canonical: "https://zero.dev/portfolio", index: true },
-  { id: "about", label: "من أنا", path: "/about", title: "من أنا — ZERO | مطور Full Stack", description: "تعرف على رحلة ZERO في تطوير الويب. خبرة، مهارات، وقيم مهنية.", keywords: "مطور سعودي، Full Stack، React Developer", ogImage: "/zero-logo.png", canonical: "https://zero.dev/about", index: true },
-  { id: "services", label: "الخدمات", path: "/services", title: "خدمات ZERO — تطوير مواقع ومتاجر وتطبيقات", description: "خدمات تطوير شاملة: مواقع ويب، متاجر إلكترونية، تطبيقات موبايل، لوحات تحكم.", keywords: "خدمات برمجة، تطوير موقع، متجر إلكتروني", ogImage: "/zero-logo.png", canonical: "https://zero.dev/services", index: true },
-  { id: "pricing", label: "الأسعار", path: "/pricing", title: "أسعار ZERO — باقات شفافة بدون رسوم مخفية", description: "3 باقات واضحة تناسب كل ميزانية. اعرف ما ستحصل عليه بالضبط قبل البداية.", keywords: "أسعار تطوير مواقع، تكلفة موقع ويب، أسعار برمجة", ogImage: "/zero-logo.png", canonical: "https://zero.dev/pricing", index: true },
-  { id: "blog", label: "المدونة", path: "/blog", title: "مدونة ZERO — مقالات تقنية أسبوعية", description: "مقالات تقنية متميزة في React، Next.js، TypeScript، وأحدث تقنيات الويب.", keywords: "مدونة تقنية، مقالات برمجة، React، TypeScript", ogImage: "/zero-logo.png", canonical: "https://zero.dev/blog", index: true },
-  { id: "contact", label: "التواصل", path: "/contact", title: "تواصل مع ZERO — استشارة مجانية", description: "تواصل معي لمناقشة مشروعك. استشارة مجانية وعرض سعر خلال 24 ساعة.", keywords: "تواصل مطور ويب، استشارة مجانية، طلب مشروع", ogImage: "/zero-logo.png", canonical: "https://zero.dev/contact", index: true },
+  { id: "home", label: "الرئيسية", path: "/", title: "ZERO — مطور ويب احترافي | Software Architect Solutions", description: "أبني مواقع وتطبيقات رقمية تتفوق على التوقعات. خبرة 5+ سنوات في React، Next.js، Node.js.", keywords: "مطور ويب، برمجة مواقع، تطوير تطبيقات، React، Next.js، السعودية", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/", index: true },
+  { id: "portfolio", label: "الأعمال", path: "/portfolio", title: "أعمال ZERO — مشاريع ويب احترافية", description: "معرض أعمال يضم 9+ مشاريع حقيقية في التجارة الإلكترونية، لوحات التحكم، وتطبيقات الويب.", keywords: "معرض أعمال، مشاريع ويب، تطوير متاجر إلكترونية", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/portfolio", index: true },
+  { id: "about", label: "من أنا", path: "/about", title: "من أنا — ZERO | مطور Full Stack", description: "تعرف على رحلة ZERO في تطوير الويب. خبرة، مهارات، وقيم مهنية.", keywords: "مطور سعودي، Full Stack، React Developer", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/about", index: true },
+  { id: "services", label: "الخدمات", path: "/services", title: "خدمات ZERO — تطوير مواقع ومتاجر وتطبيقات", description: "خدمات تطوير شاملة: مواقع ويب، متاجر إلكترونية، تطبيقات موبايل، لوحات تحكم.", keywords: "خدمات برمجة، تطوير موقع، متجر إلكتروني", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/services", index: true },
+  { id: "pricing", label: "الأسعار", path: "/pricing", title: "أسعار ZERO — باقات شفافة بدون رسوم مخفية", description: "3 باقات واضحة تناسب كل ميزانية. اعرف ما ستحصل عليه بالضبط قبل البداية.", keywords: "أسعار تطوير مواقع، تكلفة موقع ويب، أسعار برمجة", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/pricing", index: true },
+  { id: "blog", label: "المدونة", path: "/blog", title: "مدونة ZERO — مقالات تقنية أسبوعية", description: "مقالات تقنية متميزة في React، Next.js، TypeScript، وأحدث تقنيات الويب.", keywords: "مدونة تقنية، مقالات برمجة، React، TypeScript", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/blog", index: true },
+  { id: "contact", label: "التواصل", path: "/contact", title: "تواصل مع ZERO — استشارة مجانية", description: "تواصل معي لمناقشة مشروعك. استشارة مجانية وعرض سعر خلال 24 ساعة.", keywords: "تواصل مطور ويب، استشارة مجانية، طلب مشروع", ogImage: "/zero-logo.png", canonical: "https://zero-0005875463zero-zero-landing.vercel.app/contact", index: true },
 ];
 
 const scoreItems = [
@@ -227,7 +227,7 @@ export default function SeoManager() {
 Allow: /
 Disallow: /admin
 ${pages.filter((p) => !p.index).map((p) => `Disallow: ${p.path}`).join("\n")}
-Sitemap: https://zero.dev/sitemap.xml`}</pre>
+Sitemap: https://zero-0005875463zero-zero-landing.vercel.app/sitemap.xml`}</pre>
             </div>
           </div>
         </div>
