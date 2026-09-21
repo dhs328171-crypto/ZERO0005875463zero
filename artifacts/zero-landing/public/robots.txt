@@ -5,4 +5,4 @@ Disallow: /login
 Disallow: /register
 Disallow: /profile
 
-Sitemap: https://zero.dev/sitemap.xml
+Sitemap: https://zero-0005875463zero-zero-landing.vercel.app/sitemap.xml
