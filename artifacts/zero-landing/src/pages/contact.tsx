@@ -9,14 +9,14 @@ import {
 import { useT } from "@/contexts/i18n-context";
 import { apiPost } from "@/lib/api";
 
-type Field = "name" | "email" | "subject" | "message";
+type Field = "name" | "email" | "subject" | "service" | "budget" | "timeline" | "message";
 
-interface Form { name: string; email: string; subject: string; message: string; }
+interface Form { name: string; email: string; subject: string; service: string; budget: string; timeline: string; message: string; }
 interface Errors { [k: string]: string; }
 
 export default function Contact() {
   const t = useT();
-  const [form, setForm] = useState<Form>({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState<Form>({ name: "", email: "", subject: "", service: "", budget: "", timeline: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [step, setStep] = useState<"form" | "success" | "error">("form");
   const [sending, setSending] = useState(false);
@@ -38,7 +38,7 @@ export default function Contact() {
   const handleSubmit = async () => {
     const e = validate();
     setErrors(e);
-    setTouched(new Set(["name", "email", "subject", "message"] as Field[]));
+    setTouched(new Set(["name", "email", "subject", "service", "budget", "timeline", "message"] as Field[]));
     if (Object.keys(e).length > 0) return;
     setSending(true);
     try {
@@ -46,10 +46,10 @@ export default function Contact() {
         name: form.name,
         email: form.email,
         subject: form.subject || t("common.message"),
-        message: form.message,
+        message: [`[PROJECT BRIEF]`, `الخدمة: ${form.service || "غير محددة"}`, `الميزانية: ${form.budget || "غير محددة"}`, `المدة المتوقعة: ${form.timeline || "غير محددة"}`, "", form.message].join("\n"),
       });
       setStep("success");
-      setForm({ name: "", email: "", subject: "", message: "" });
+      setForm({ name: "", email: "", subject: "", service: "", budget: "", timeline: "", message: "" });
     } catch (err: any) {
       setStep("error");
     } finally {
@@ -237,6 +237,22 @@ export default function Contact() {
                           placeholder={t("contact.formSubjectPlaceholder")}
                           className={inputClass("subject")}
                         />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {([
+                          ["service", isArabic ? "نوع الخدمة" : "Service", ["منصة Full Stack", "متجر إلكتروني", "لوحة تحكم", "AI / Automation", "SEO / Security", "أخرى"]],
+                          ["budget", isArabic ? "الميزانية التقريبية" : "Budget", ["أقل من 500$", "500$ — 1,500$", "1,500$ — 3,000$", "يحدد لاحقًا"]],
+                          ["timeline", isArabic ? "المدة المتوقعة" : "Timeline", ["أقل من شهر", "1 — 2 شهر", "2 — 4 أشهر", "غير محددة"]],
+                        ] as const).map(([field, label, options]) => (
+                          <div key={field}>
+                            <label className="text-sm font-medium mb-1.5 block">{label}</label>
+                            <select value={form[field]} onChange={(e) => update(field, e.target.value)} className={inputClass(field)}>
+                              <option value="">{isArabic ? "اختر" : "Select"}</option>
+                              {options.map((option) => <option key={option} value={option}>{option}</option>)}
+                            </select>
+                          </div>
+                        ))}
                       </div>
 
                       <div>
