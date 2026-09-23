@@ -7,6 +7,7 @@ import {
   Download, Mail, Phone, MapPin, Globe, Calendar, Award, 
   Briefcase, Code2, GraduationCap, Star, Cpu, CheckCircle, ExternalLink,
   Trophy, Target, BookOpen, BadgeCheck as Certificate, Zap, ChevronDown, ChevronUp,
+  ShieldCheck, BrainCircuit,
   Filter, Search, MessageCircle
 } from "lucide-react";
 import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiTailwindcss, 
@@ -17,47 +18,54 @@ import { apiGet, getImageUrl } from "@/lib/api";
 
 // Skills with levels
 const skills = [
-  { name: "React / Next.js", level: 97, color: "bg-cyan-400", icon: <SiReact size={18} className="text-cyan-400" /> },
-  { name: "TypeScript", level: 93, color: "bg-blue-400", icon: <SiTypescript size={18} className="text-blue-400" /> },
-  { name: "Node.js / Express", level: 90, color: "bg-green-400", icon: <SiNodedotjs size={18} className="text-green-400" /> },
-  { name: "UI/UX Design", level: 88, color: "bg-purple-400", icon: <SiFigma size={18} className="text-purple-400" /> },
-  { name: "PostgreSQL / MongoDB", level: 85, color: "bg-yellow-400", icon: <SiPostgresql size={18} className="text-blue-300" /> },
-  { name: "Docker / DevOps", level: 78, color: "bg-orange-400", icon: <SiDocker size={18} className="text-blue-500" /> },
-  { name: "Python", level: 75, color: "bg-blue-300", icon: <SiPython size={18} className="text-yellow-300" /> },
-  { name: "GraphQL", level: 75, color: "bg-pink-400", icon: <SiGraphql size={18} className="text-pink-400" /> },
+  { name: "React / Next.js", level: 90, color: "bg-cyan-400", icon: <SiReact size={18} className="text-cyan-400" /> },
+  { name: "TypeScript / JavaScript", level: 88, color: "bg-blue-400", icon: <SiTypescript size={18} className="text-blue-400" /> },
+  { name: "Node.js / Express", level: 84, color: "bg-green-400", icon: <SiNodedotjs size={18} className="text-green-400" /> },
+  { name: "Python / Automation", level: 78, color: "bg-yellow-400", icon: <SiPython size={18} className="text-yellow-300" /> },
+  { name: "UI/UX + Figma", level: 82, color: "bg-purple-400", icon: <SiFigma size={18} className="text-purple-400" /> },
+  { name: "PostgreSQL / MongoDB", level: 80, color: "bg-blue-400", icon: <SiPostgresql size={18} className="text-blue-300" /> },
+  { name: "Cyber Security", level: 68, color: "bg-red-400", icon: <ShieldCheck size={18} className="text-red-400" /> },
+  { name: "AI Models / AI Apps", level: 72, color: "bg-pink-400", icon: <BrainCircuit size={18} className="text-pink-400" /> },
+];
+
+const professionalTracks = [
+  { title: "Software Engineering", items: ["Web application architecture", "Full Stack development", "Databases and APIs", "JavaScript, TypeScript, Python, Java, C/C++ and C#"] },
+  { title: "AI & Automation", items: ["AI model experimentation", "AI-powered applications", "Custom bot development", "AI video editing workflows"] },
+  { title: "Cyber Security", items: ["Secure application thinking", "Access and content protection", "Security-focused platform features"] },
+  { title: "Marketing, Sales & Finance", items: ["Sales and negotiation", "Digital marketing", "Financial trading", "Investment strategy research"] },
 ];
 
 // Experience timeline
 const experience = [
   {
-    role: "مطور Full Stack مستقل",
+    role: "Software Engineer & Full Stack Developer",
     company: "ZERO — Software Architect Solutions",
-    period: "2022 — الحاضر",
+    period: "6+ سنوات تعلم وتطبيق ذاتي",
     location: "المملكة العربية السعودية (عن بعد)",
     desc: "تطوير منصات ويب وتجارب رقمية متكاملة تشمل الواجهات، الـAPI، قواعد البيانات، لوحات الإدارة، والأتمتة.",
-    highlights: ["10+ دراسات حالة معروضة", "React / Node.js / Python", "لوحات SaaS ومتاجر وLMS", "ملكية كاملة للكود"],
+    highlights: ["10+ دراسات حالة معروضة", "تطوير مواقع ومنصات كاملة", "React / Node.js / Python", "لوحات SaaS ومتاجر وLMS"],
     color: "border-primary/40",
     dot: "bg-primary",
     current: true,
   },
   {
-    role: "مطور React أول",
-    company: "شركة تقنية خليجية",
-    period: "2021 — 2022",
+    role: "AI & Application Builder",
+    company: "ZERO Lab / مشاريع مستقلة",
+    period: "مستمر",
     location: "عن بعد",
-    desc: "مشاريع وتطبيقات تجريبية متقدمة في React وTypeScript مع اهتمام بالأداء وتجربة الاستخدام.",
-    highlights: ["React + TypeScript", "تصميم أنظمة قابلة للتوسع", "واجهات متجاوبة"],
+    desc: "تصميم معماريات لأنظمة AI، تجربة النماذج وتعديلها، وبناء تطبيقات ذكاء اصطناعي وبوتات مخصصة.",
+    highlights: ["3–4 معماريات AI", "تطبيقات AI مخصصة", "4 بوتات مخصصة", "تجارب نماذج وتحسينات"],
     color: "border-green-400/40",
     dot: "bg-green-400",
     current: false,
   },
   {
-    role: "مطور ويب",
-    company: "وكالة رقمية",
-    period: "2020 — 2021",
-    location: "الرياض",
-    desc: "بناء واجهات ومكونات ويب وتجارب محتوى مع تطبيق مبادئ SEO والأداء.",
-    highlights: ["HTML / CSS / JavaScript", "React وواجهات RTL", "أساسيات SEO"],
+    role: "Web & Cyber Security Track",
+    company: "تعلم وتطبيق مستقل",
+    period: "1–1.5 سنة أمن سيبراني",
+    location: "عن بعد",
+    desc: "تطوير مواقع وتطبيقات مع إدخال مبادئ حماية المحتوى، الصلاحيات، والوعي الأمني داخل المنتج.",
+    highlights: ["11+ موقعًا وتطبيقًا", "حماية محتوى ومنصات", "React وواجهات RTL", "أساسيات SEO والأمان"],
     color: "border-yellow-400/40",
     dot: "bg-yellow-400",
     current: false,
@@ -157,18 +165,18 @@ function mapApiCertificate(cert: ApiCertificate): CertificateCard {
 
 // Learning Roadmap - What's coming next
 const learningRoadmap = [
-  { phase: "المرحلة 1 ✅", title: "Python Certificate (Sololearn)", items: ["Python Basics - مكتمل", "Data Structures - مكتمل", "OOP - قيد التنفيذ", "Final Project - قريباً"], current: true },
-  { phase: "المرحلة 2 🎯", title: "Full Stack Certification (FCC)", items: ["Responsive Design", "JavaScript Algorithms", "Front End Libraries", "Back End & APIs"], current: false },
-  { phase: "المرحلة 3 ⚡", title: "Advanced Skills", items: ["TypeScript Mastery", "React Advanced Patterns", "Node.js Performance", "Database Design"], current: false },
-  { phase: "المرحلة 4 🚀", title: "Specialization", items: ["Data Science Fundamentals", "Cloud Architecture", "System Design", "Tech Leadership"], current: false },
+  { phase: "المرحلة 1 ✅", title: "Python Certificate (SoloLearn)", items: ["Python Basics", "Data Types", "Functions", "OOP", "File Handling"], current: true },
+  { phase: "المرحلة 2 🎯", title: "JavaScript & Full Stack", items: ["JavaScript Algorithms", "React Patterns", "Node.js APIs", "Database Design"], current: false },
+  { phase: "المرحلة 3 ⚡", title: "AI & Cyber Security", items: ["AI application architecture", "Model experimentation", "Secure platforms", "Automation and bots"], current: false },
+  { phase: "المرحلة 4 🚀", title: "Business & Delivery", items: ["Digital marketing", "Sales and negotiation", "Client delivery", "Live product launches"], current: false },
 ];
 
 // Projects showcase
 const projects = [
-  { name: "متجر الرياض الإلكتروني", tech: "Next.js + Stripe + PostgreSQL", desc: "متجر متكامل مع بوابة دفع وإدارة مخزون ولوحة تحكم — 500+ عميل شهرياً", url: "#" },
-  { name: "منصة SaaS للأعمال", tech: "React + Node.js + MongoDB", desc: "نظام إدارة الفرق والمشاريع مع تتبع وقت وفوا��ير تلقائية", url: "#" },
-  { name: "تطبيق حجز العيادات", tech: "React + Firebase + Twilio", desc: "نظام حجز ذكي مع تأكيدات واتساب تلقائية — قلّل المواعيد الفائتة 60%", url: "#" },
-  { name: "لوحة تحكم عقارات", tech: "React + TypeScript + Recharts", desc: "لوحة تفاعلية مع خرائط وإحصائيات لحظية لمجموعة عقارية", url: "#" },
+  { name: "منصات ويب كاملة", tech: "React + Next.js + Node.js", desc: "واجهات ومنصات متجاوبة مع API وقاعدة بيانات ولوحة إدارة.", url: "#" },
+  { name: "أنظمة AI وأتمتة", tech: "Python + AI Models + Automation", desc: "معماريات وتطبيقات ذكاء اصطناعي وبوتات مخصصة.", url: "#" },
+  { name: "متاجر وواجهات RTL", tech: "React + TypeScript + REST API", desc: "تجارب متاجر عربية، كتالوجات، طلبات، وفلاتر.", url: "#" },
+  { name: "منصات تعليمية آمنة", tech: "React + Security + PWA", desc: "لوحات تعليمية، حماية محتوى، اشتراكات، وتقارير.", url: "#" },
 ];
 
 // Tech stack icons
@@ -184,6 +192,8 @@ const techStack = [
   { icon: <SiFirebase size={22} className="text-yellow-400" />, name: "Firebase" },
   { icon: <SiDocker size={22} className="text-blue-500" />, name: "Docker" },
   { icon: <SiPython size={22} className="text-yellow-300" />, name: "Python" },
+  { icon: <Code2 size={22} className="text-orange-300" />, name: "Java" },
+  { icon: <Code2 size={22} className="text-blue-300" />, name: "C / C++ / C#" },
   { icon: <SiFigma size={22} className="text-purple-400" />, name: "Figma" },
   { icon: <SiGraphql size={22} className="text-pink-400" />, name: "GraphQL" },
   { icon: <SiRedis size={22} className="text-red-500" />, name: "Redis" },
@@ -476,7 +486,7 @@ export default function CV() {
                         <Star size={16} className="text-purple-400 mt-1 flex-shrink-0" />
                         <div>
                           <p className="text-sm font-medium text-foreground">أهداف 2026</p>
-                          <p className="text-xs text-muted-foreground">5+ شهادات جديدة</p>
+                          <p className="text-xs text-muted-foreground">تطوير المهارات والشهادات تدريجيًا</p>
                         </div>
                       </div>
                     </div>
@@ -534,6 +544,26 @@ export default function CV() {
                     <div key={i} className="flex items-center gap-2 bg-background border border-border rounded-lg px-3 py-2 text-xs hover:border-primary/30 transition-colors">
                       {t.icon}
                       <span className="font-mono text-muted-foreground">{t.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-2 bg-card border border-primary/20 rounded-2xl p-6">
+                <h2 className="font-bold text-lg mb-5 flex items-center gap-2">
+                  <Briefcase size={18} className="text-primary" /> مسارات العمل والخبرة
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {professionalTracks.map((track) => (
+                    <div key={track.title} className="rounded-xl border border-border bg-background/60 p-4">
+                      <h3 className="font-semibold text-sm text-primary mb-3">{track.title}</h3>
+                      <ul className="space-y-2">
+                        {track.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
+                            <CheckCircle size={12} className="text-green-400 mt-0.5 shrink-0" /> {item}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                 </div>
