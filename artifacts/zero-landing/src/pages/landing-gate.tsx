@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Zap, Code, Smartphone, ShoppingCart, BarChart3, Star, Users, Briefcase, CheckCircle, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_GROUP } from "@/lib/config";
 import { useT, useI18n } from "@/contexts/i18n-context";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { HeroSection } from "@/components/home/HeroSection";
@@ -157,7 +158,7 @@ export default function LandingGate() {
               <h3 className="text-xl font-bold mb-2">{t("lg.contactDirect")}</h3>
               <p className="text-muted-foreground text-sm mb-5">{t("lg.contactDesc")}</p>
               <Button className="bg-green-500 hover:bg-green-600 text-white" asChild>
-                <a href="/contact" target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_GROUP} target="_blank" rel="noopener noreferrer">
                   <MessageCircle size={15} className="ml-2" />
                   {t("lg.whatsappCta")}
                 </a>

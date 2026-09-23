@@ -11,6 +11,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useI18n } from "@/contexts/i18n-context";
+import { WHATSAPP_GROUP } from "@/lib/config";
 
 // ============================================
 // REAL COMMUNITY DATA
@@ -30,7 +31,7 @@ const channels = [
     desc: "الجروب الرئيسي - نقاشات تقنية • مساعدة متبادلة • فرص عمل • مشاريع مشتركة", 
     members: "580+", 
     online: 45,
-    href: "/contact", 
+    href: WHATSAPP_GROUP, 
     color: "border-green-400/30 bg-green-400/5 hover:bg-green-400/10", 
     icon: "💬",
     type: "group",
@@ -42,7 +43,7 @@ const channels = [
     desc: "إعلانات حصرية • نصائح يومية • تحديثات المشاريع • فرص تعلم مجانية", 
     members: "1,200+", 
     online: null,
-    href: "/contact", 
+    href: WHATSAPP_GROUP, 
     color: "border-primary/30 bg-primary/5 hover:bg-primary/10", 
     icon: "📢",
     type: "channel",
@@ -54,7 +55,7 @@ const channels = [
     desc: "مخصص للكورسات - Python, freeCodeCamp, AWS - نساعد بعض ونتابع التقدم!",
     members: "120+",
     online: 23,
-    href: "/contact",
+    href: WHATSAPP_GROUP,
     color: "border-blue-400/30 bg-blue-400/5 hover:bg-blue-400/10",
     icon: "📚",
     type: "group",
