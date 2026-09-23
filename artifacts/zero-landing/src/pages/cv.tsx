@@ -34,8 +34,8 @@ const experience = [
     company: "ZERO — Software Architect Solutions",
     period: "2022 — الحاضر",
     location: "المملكة العربية السعودية (عن بعد)",
-    desc: "بناء تطبيقات ويب وموبايل احترافية للعملاء في السعودية والخليج. تصميم وتطوير أنظمة SaaS، متاجر إلكترونية، ولوحات تحكم متقدمة.",
-    highlights: ["52+ مشروع مكتمل", "30+ عميل سعيد", "تقييم 4.9/5 متوسط", "دول: SA, AE, KW, JO"],
+    desc: "تطوير منصات ويب وتجارب رقمية متكاملة تشمل الواجهات، الـAPI، قواعد البيانات، لوحات الإدارة، والأتمتة.",
+    highlights: ["10+ دراسات حالة معروضة", "React / Node.js / Python", "لوحات SaaS ومتاجر وLMS", "ملكية كاملة للكود"],
     color: "border-primary/40",
     dot: "bg-primary",
     current: true,
@@ -45,8 +45,8 @@ const experience = [
     company: "شركة تقنية خليجية",
     period: "2021 — 2022",
     location: "عن بعد",
-    desc: "قيادة فريق تطوير فرونت إند لمنصة SaaS تخدم 10,000+ مستخدم. تحسين الأداء بنسبة 60% وتقليل وقت التحميل من 5 ثوانٍ إلى أقل من ثانيتين.",
-    highlights: ["React + TypeScript", "تحسين أداء 60%", "قيادة فريق 4 مطورين"],
+    desc: "مشاريع وتطبيقات تجريبية متقدمة في React وTypeScript مع اهتمام بالأداء وتجربة الاستخدام.",
+    highlights: ["React + TypeScript", "تصميم أنظمة قابلة للتوسع", "واجهات متجاوبة"],
     color: "border-green-400/40",
     dot: "bg-green-400",
     current: false,
@@ -56,8 +56,8 @@ const experience = [
     company: "وكالة رقمية",
     period: "2020 — 2021",
     location: "الرياض",
-    desc: "تطوير مواقع وتطبيقات ويب لعملاء متنوعين. العمل مع فرق تصميم وتسليم مشاريع ضمن جداول محددة.",
-    highlights: ["15+ موقع", "WordPress + React", "SEO متقدم"],
+    desc: "بناء واجهات ومكونات ويب وتجارب محتوى مع تطبيق مبادئ SEO والأداء.",
+    highlights: ["HTML / CSS / JavaScript", "React وواجهات RTL", "أساسيات SEO"],
     color: "border-yellow-400/40",
     dot: "bg-yellow-400",
     current: false,
@@ -67,10 +67,10 @@ const experience = [
 // Education & Certificates - ENHANCED with courses
 const education = [
   {
-    degree: "بكالوريوس تقنية المعلومات",
-    school: "جامعة سعودية",
-    period: "2017 — 2021",
-    gpa: "4.2/5",
+    degree: "البيانات التعليمية الرسمية",
+    school: "سيتم تحديثها من صاحب السيرة",
+    period: "—",
+    gpa: "غير منشور",
     type: "academic",
   },
 ];
@@ -298,16 +298,16 @@ export default function CV() {
               <span className="text-primary glow-cyan-text">الشهادات</span>
             </h1>
             <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg mb-6">
-              مطور Full Stack — 5+ سنوات خبرة — 52+ مشروع مكتمل — طالب علم مستمر
+              Software Architect — Full Stack — AI — Cyber Security — طالب علم مستمر
             </p>
             
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center gap-4 mb-6">
-              {[
-                { val: 52, suffix: "+", label: "مشروع" },
-                { val: 30, suffix: "+", label: "عميل" },
-                { val: 3, suffix: "", label: "شهادة" },
-                { val: 100, suffix: "%", label: "رضا" },
+                {[
+                { val: 10, suffix: "+", label: "دراسة حالة" },
+                { val: 6, suffix: "", label: "مجالات تقنية" },
+                { val: 1, suffix: "", label: "شهادة موثقة" },
+                { val: 100, suffix: "%", label: "ملكية الكود" },
               ].map((s, i) => (
                 <div key={i} className="bg-card/50 border border-border rounded-lg px-4 py-2 text-center">
                   <span className="text-xl font-bold font-mono text-primary">{s.val}{s.suffix}</span>
@@ -319,7 +319,7 @@ export default function CV() {
             <div className="flex flex-wrap gap-3 justify-center">
               <button onClick={handlePrint}
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-mono text-sm hover:bg-primary/90 glow-cyan transition-all">
-                <Download size={14} /> تحميل PDF
+                <Download size={14} /> طباعة / حفظ PDF
               </button>
               <a href="/contact"
                 className="inline-flex items-center gap-2 border border-border text-foreground px-5 py-2.5 rounded-xl font-mono text-sm hover:border-primary/50 transition-all">
@@ -480,10 +480,10 @@ export default function CV() {
                       مطور <span className="text-foreground font-medium">Full Stack شغوف</span> بتحويل الأفكار إلى تجارب رقمية استثنائية. أتخصص في بناء تطبيقات ويب وموبايل عالية الأداء باستخدام <span className="text-cyan-400">React</span>، <span className="text-white">Next.js</span>، و<span className="text-green-400"> Node.js</span>.
                     </p>
                     <p>
-                      خلال <span className="text-primary font-bold">5+ سنوات</span> من العمل، أنجزت <span className="text-primary font-bold">52+ مشروعاً</span> لعملاء من السعودية والخليج والأردن.
+                      أعرض هنا <span className="text-primary font-bold">10+ دراسات حالة</span> مبنية على فيديوهات ومخرجات فعلية، مع فصل واضح بين المشروع المنشور والمشروع الذي ما زال يحتاج رابط Live Demo.
                     </p>
                     <p className="border-r-2 border-primary/30 pr-4 bg-primary/5 p-3 rounded-l">
-                      💡 <strong className="text-foreground">مبدأ رحلتي التعليمية الآن!</strong> أدرس بايثون على Solern وسأحصل على شهادة قريباً، ثم سأنتقل لـ freeCodeCamp للحصول على شهادة Full Stack معترفة دولياً.
+                      <strong className="text-foreground">مبدأ العمل:</strong> لا أضع شهادة أو رقمًا أو رابطًا عامًا إلا إذا كان قابلًا للتحقق. الشهادات الحالية مرتبطة بمصدرها، وروابط المشاريع ستظهر من خلال Live Demo فقط.
                     </p>
                   </div>
                 </div>
@@ -498,15 +498,15 @@ export default function CV() {
                       <div className="flex items-start gap-3">
                         <BookOpen size={16} className="text-primary mt-1 flex-shrink-0" />
                         <div>
-                          <p className="text-sm font-medium text-foreground">كورس بايثون (Solern)</p>
-                          <p className="text-xs text-muted-foreground">Python for Everybody Specialization</p>
+                          <p className="text-sm font-medium text-foreground">Python / SoloLearn</p>
+                          <p className="text-xs text-muted-foreground">شهادة موثقة معروضة في صفحة الشهادات</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <Trophy size={16} className="text-yellow-400 mt-1 flex-shrink-0" />
                         <div>
-                          <p className="text-sm font-medium text-foreground">freeCodeCertification</p>
-                          <p className="text-xs text-muted-foreground">Full Stack Developer Certificate</p>
+                          <p className="text-sm font-medium text-foreground">Full Stack Roadmap</p>
+                          <p className="text-xs text-muted-foreground">مسار تطوير مستمر، وليس شهادة مكتملة</p>
                         </div>
                       </div>
                     </div>
