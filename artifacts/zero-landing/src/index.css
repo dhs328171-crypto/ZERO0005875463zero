@@ -870,6 +870,71 @@
   animation: gradientShift 6s ease infinite;
 }
 
+/* Premium navigation and responsive polish */
+.site-navbar {
+  background: linear-gradient(180deg, hsl(var(--background) / .86), hsl(var(--background) / .58));
+  border-bottom: 1px solid hsl(var(--border) / .45);
+}
+
+.site-navbar[data-scrolled="true"] {
+  background: hsl(var(--background) / .82);
+  border-bottom-color: hsl(var(--primary) / .2);
+  box-shadow: 0 14px 40px hsl(204 37% 2% / .28);
+}
+
+.nav-icon-button {
+  transition: color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.nav-icon-button:hover {
+  background: hsl(var(--primary) / .1);
+  transform: translateY(-1px);
+}
+
+.mobile-nav-panel {
+  background:
+    radial-gradient(circle at 15% 8%, hsl(var(--primary) / .1), transparent 16rem),
+    linear-gradient(180deg, hsl(var(--card) / .97), hsl(var(--background) / .98));
+  box-shadow: -24px 0 70px hsl(204 37% 2% / .3);
+}
+
+@media (min-width: 1024px) {
+  .site-navbar .container {
+    height: 5rem;
+  }
+
+  .site-navbar nav > ul > li > a,
+  .site-navbar nav > ul > li > div > button {
+    position: relative;
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 639px) {
+  .mobile-nav-panel {
+    top: 4.5rem;
+  }
+
+  .mobile-nav-panel li > a > div {
+    min-height: 3.35rem;
+    border: 1px solid transparent;
+  }
+
+  .mobile-nav-panel li > a > div:hover {
+    border-color: hsl(var(--primary) / .18);
+    transform: translateX(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-icon-button,
+  .mobile-nav-panel li > a > div {
+    transition: none;
+  }
+}
+
 /* Scan line effect for cyberpunk aesthetic */
 @keyframes scanline {
   0% { transform: translateY(-100%); }
