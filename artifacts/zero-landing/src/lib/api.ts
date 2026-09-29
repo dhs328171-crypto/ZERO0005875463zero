@@ -1,6 +1,8 @@
 // ZERO API client — use the managed Manus backend in production and same-origin locally.
-const API_ORIGIN = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+const configuredApiUrl = String(import.meta.env.VITE_API_URL || "").trim();
+const API_ORIGIN = configuredApiUrl.replace(/\/$/, "").replace(/\/api$/, "");
 const API_BASE = `${API_ORIGIN}/api`;
+const REQUEST_TIMEOUT_MS = 15_000;
 
 function apiUrl(path: string) {
   return `${API_BASE}${path.startsWith("/") ? path : `/${path}`}`;
@@ -59,7 +61,25 @@ export async function api<T = any>(path: string, options: RequestInit = {}): Pro
   if (!isForm) headers["Content-Type"] = "application/json";
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
-  const res = await fetch(apiUrl(path), { ...options, headers, credentials: "include" });
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+  let res: Response;
+  try {
+    res = await fetch(apiUrl(path), {
+      ...options,
+      headers,
+      credentials: "include",
+      signal: options.signal ?? controller.signal,
+    });
+  } catch (error) {
+    if (error instanceof DOMException && error.name === "AbortError") {
+      throw new Error("انتهت مهلة الاتصال بالخادم. تحقق من رابط الـ API ثم حاول مرة أخرى.");
+    }
+    throw new Error("تعذر الاتصال بالخادم. تأكد أن خدمة الـ API تعمل.");
+  } finally {
+    window.clearTimeout(timeout);
+  }
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
