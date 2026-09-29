@@ -13,6 +13,7 @@ if (Number.isNaN(port) || port <= 0) {
 }
 
 const basePath = process.env.BASE_PATH ?? '/';
+const apiTarget = (process.env.VITE_API_URL ?? 'http://localhost:8080').replace(/\/$/, '');
 
 export default defineConfig({
   base: basePath,
@@ -61,12 +62,12 @@ export default defineConfig({
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: apiTarget,
         changeOrigin: true,
         secure: false,
       },
       '/uploads': {
-        target: 'http://localhost:8080',
+        target: apiTarget,
         changeOrigin: true,
         secure: false,
       },
