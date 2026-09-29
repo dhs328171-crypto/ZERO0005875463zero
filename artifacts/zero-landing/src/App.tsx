@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, Redirect, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -191,10 +191,19 @@ function AdminRoutes() {
 
 function Router() {
   const [location] = useLocation();
+
+  // Keep every route change feeling like a new, polished page instead of
+  // preserving the previous page's scroll position.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, [location]);
+
   return (
     <>
       <SiteSeo />
-      {location.startsWith("/admin") ? <AdminRoutes /> : <PublicRoutes />}
+      <div key={location} className="route-stage">
+        {location.startsWith("/admin") ? <AdminRoutes /> : <PublicRoutes />}
+      </div>
     </>
   );
 }

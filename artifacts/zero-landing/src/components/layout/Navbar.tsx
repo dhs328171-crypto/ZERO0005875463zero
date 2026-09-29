@@ -48,6 +48,12 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMoreMenuOpen(false);
+    setUserMenuOpen(false);
+  }, [location]);
+
   const navLinks = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.portfolio"), path: "/portfolio" },
@@ -76,7 +82,8 @@ export function Navbar() {
 
       <header
         data-testid="site-navbar"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        data-scrolled={isScrolled}
+        className={`site-navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
              ? "bg-background/78 backdrop-blur-xl border-b border-primary/15 shadow-lg shadow-background/30"
              : "bg-background/35 backdrop-blur-md"
@@ -95,7 +102,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav aria-label="التنقل الرئيسي" className="hidden lg:flex items-center gap-6">
             <ul className="flex items-center gap-4">
               {navLinks.map((link) => (
                 <li key={link.path}>
@@ -252,7 +259,7 @@ export function Navbar() {
             <button onClick={() => setSearchOpen(true)} className="text-muted-foreground hover:text-primary p-2">
               <Search size={20} />
             </button>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-foreground hover:text-primary transition-colors p-1">
+            <button aria-label={mobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة"} aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="nav-icon-button text-foreground hover:text-primary transition-colors p-2 rounded-xl">
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
@@ -269,7 +276,7 @@ export function Navbar() {
                 exit={{ opacity: 0, x: "100%" }}
                 transition={{ duration: 0.22 }}
                 dir="rtl"
-                className="fixed inset-x-0 top-[4.5rem] bottom-0 z-50 w-full sm:left-auto sm:right-0 sm:w-[86vw] sm:max-w-md lg:hidden holo-surface border-s border-border overflow-y-auto overscroll-contain"
+                className="fixed inset-x-0 top-[4.5rem] bottom-0 z-50 w-full sm:left-auto sm:right-0 sm:w-[86vw] sm:max-w-md lg:hidden mobile-nav-panel border-s border-border overflow-y-auto overscroll-contain"
               >
               <div className="min-h-full px-4 py-5 pb-10 flex flex-col gap-4">
                 {isAuthenticated && user && (
