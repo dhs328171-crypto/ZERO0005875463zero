@@ -48,6 +48,12 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMoreMenuOpen(false);
+    setUserMenuOpen(false);
+  }, [location]);
+
   const navLinks = [
     { name: t("nav.home"), path: "/" },
     { name: t("nav.portfolio"), path: "/portfolio" },
