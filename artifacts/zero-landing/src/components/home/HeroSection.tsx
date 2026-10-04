@@ -177,7 +177,7 @@ export function HeroSection({ publicMode = false }: { publicMode?: boolean }) {
               data-testid="text-hero-badge"
             >
               <span className="hero-status-dot w-2 h-2 rounded-full" aria-hidden="true" />
-              <span className="text-primary font-mono text-[0.68rem] sm:text-sm tracking-[0.18em]">{t("home.heroBadge")}</span>
+              <span className="hero-status-label text-primary text-[0.72rem] sm:text-sm font-semibold">{t("home.heroBadge")}</span>
               <span className="hero-eyebrow-code font-mono text-[0.6rem] tracking-widest" aria-hidden="true">SYS.ONLINE</span>
             </motion.div>
 
