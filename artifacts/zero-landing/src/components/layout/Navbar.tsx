@@ -259,7 +259,17 @@ export function Navbar() {
             <button onClick={() => setSearchOpen(true)} className="text-muted-foreground hover:text-primary p-2">
               <Search size={20} />
             </button>
-            <button aria-label={mobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة"} aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="nav-icon-button text-foreground hover:text-primary transition-colors p-2 rounded-xl">
+            <button
+              type="button"
+              aria-label={mobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={(event) => {
+                event.stopPropagation();
+                setMobileMenuOpen((open) => !open);
+              }}
+              className="nav-icon-button relative z-[70] flex size-11 items-center justify-center rounded-xl border border-primary/40 bg-background text-foreground shadow-[0_0_18px_hsl(var(--primary)/.12)] transition-colors hover:border-primary/70 hover:bg-primary/10 hover:text-primary"
+            >
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
@@ -271,12 +281,20 @@ export function Navbar() {
             <>
               <motion.button type="button" aria-label="إغلاق القائمة" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 top-[4.5rem] z-40 bg-background/70 backdrop-blur-sm lg:hidden" />
               <motion.div
+                id="mobile-navigation"
+                role="navigation"
+                aria-label="التنقل في الهاتف"
                 initial={{ opacity: 0, x: "100%" }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: "100%" }}
                 transition={{ duration: 0.22 }}
                 dir="rtl"
-                className="fixed inset-x-0 top-[4.5rem] bottom-0 z-50 w-full sm:left-auto sm:right-0 sm:w-[86vw] sm:max-w-md lg:hidden mobile-nav-panel border-s border-border overflow-y-auto overscroll-contain"
+                onClick={(event) => event.stopPropagation()}
+                style={{
+                  backgroundColor: "hsl(var(--background) / 0.98)",
+                  backdropFilter: "blur(20px)",
+                }}
+                className="fixed inset-x-0 top-[4.5rem] z-[65] h-[calc(100dvh-4.5rem)] min-h-[24rem] w-full bg-background sm:left-auto sm:right-0 sm:w-[86vw] sm:max-w-md lg:hidden mobile-nav-panel border-s border-border overflow-y-auto overscroll-contain pointer-events-auto"
               >
               <div className="min-h-full px-4 py-5 pb-10 flex flex-col gap-4">
                 {isAuthenticated && user && (

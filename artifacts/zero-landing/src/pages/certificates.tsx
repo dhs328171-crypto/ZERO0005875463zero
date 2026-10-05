@@ -237,6 +237,23 @@ export default function Certificates() {
                     </div>
                   </div>
 
+                  {certificate.image && (
+                    <a
+                      href={getImageUrl(certificate.image)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mb-5 block overflow-hidden rounded-xl border border-border bg-background/80"
+                      aria-label={`فتح صورة شهادة ${certificate.title}`}
+                    >
+                      <img
+                        src={getImageUrl(certificate.image)}
+                        alt={`صورة شهادة ${certificate.title}`}
+                        className="h-44 w-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </a>
+                  )}
+
                   <h2 className="text-lg font-bold text-foreground mb-2">
                     {certificate.title}
                   </h2>
