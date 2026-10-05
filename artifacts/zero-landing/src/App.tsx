@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { Component, lazy, Suspense, useEffect, type ErrorInfo, type ReactNode } from "react";
 import { Switch, Route, Router as WouterRouter, Redirect, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -9,6 +9,37 @@ import { I18nProvider } from "@/contexts/i18n-context";
 import { CurrencyProvider } from "@/contexts/currency-context";
 import { SiteSettingsProvider } from "@/contexts/site-settings-context";
 import { SiteSeo } from "@/components/seo/SiteSeo";
+
+class RouteErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error("[v0] Route rendering failed", error, info.componentStack);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <main className="zero-page flex min-h-screen items-center justify-center px-6 py-24 text-center">
+          <div className="holo-card w-full max-w-lg rounded-2xl border p-8">
+            <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-primary">SYSTEM RECOVERY</p>
+            <h1 className="mb-3 text-2xl font-bold text-foreground">حدث خطأ أثناء تحميل الصفحة</h1>
+            <p className="mb-6 text-sm leading-7 text-muted-foreground">أعد المحاولة أو ارجع إلى الصفحة الرئيسية للمتابعة.</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <button type="button" onClick={() => window.location.reload()} className="rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">إعادة المحاولة</button>
+              <a href="/" className="rounded-xl border border-border px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/50 hover:text-primary">الرئيسية</a>
+            </div>
+          </div>
+        </main>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 // Lightweight spinner shown while a chunk loads
 function ChunkLoader() {
@@ -201,9 +232,11 @@ function Router() {
   return (
     <>
       <SiteSeo />
-      <div key={location} className="route-stage">
-        {location.startsWith("/admin") ? <AdminRoutes /> : <PublicRoutes />}
-      </div>
+      <RouteErrorBoundary key={location}>
+        <div className="route-stage">
+          {location.startsWith("/admin") ? <AdminRoutes /> : <PublicRoutes />}
+        </div>
+      </RouteErrorBoundary>
     </>
   );
 }
