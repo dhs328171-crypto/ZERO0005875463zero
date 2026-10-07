@@ -49,11 +49,20 @@ const categoryStyles: Record<string, string> = {
 };
 
 const pythonCertificate = {
+  id: "sololearn-python-developer",
   title: "Python Developer",
   issuer: "SoloLearn",
+  issueDate: "",
+  expiryDate: null,
   credentialId: "CC-2F2FE49H",
+  credentialUrl: "https://api2.sololearn.com/v2/certificates/CC-2F2FE49H/image/png?t=639207855602386520",
+  image: "/work-media/python-sololearn.png",
+  category: "development",
+  featured: true,
   url: "https://api2.sololearn.com/v2/certificates/CC-2F2FE49H/image/png?t=639207855602386520",
 };
+
+const fallbackCertificates: Certificate[] = [pythonCertificate];
 
 function formatDate(value: string) {
   if (!value) return "غير محدد";
@@ -67,7 +76,7 @@ function formatDate(value: string) {
 }
 
 export default function Certificates() {
-  const [items, setItems] = useState<Certificate[]>([]);
+  const [items, setItems] = useState<Certificate[]>(fallbackCertificates);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -78,9 +87,14 @@ export default function Certificates() {
       const response = await apiGet<{ items: Certificate[] }>(
         "/certificates?limit=100",
       );
-      setItems(response.items);
+      const remoteItems = Array.isArray(response.items) ? response.items : [];
+      const hasPythonCertificate = remoteItems.some(
+        (item) => item.credentialId === pythonCertificate.credentialId,
+      );
+      setItems(hasPythonCertificate ? remoteItems : [...fallbackCertificates, ...remoteItems]);
     } catch {
-      setError("تعذر تحميل الشهادات حاليًا. حاول مرة أخرى.");
+      // Keep the built-in certificate visible when the optional API is unavailable.
+      setItems(fallbackCertificates);
     } finally {
       setLoading(false);
     }
