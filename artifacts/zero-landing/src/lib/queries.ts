@@ -28,6 +28,31 @@ export interface Project {
   featured: boolean;
   createdAt: string;
 }
+
+// Keep the public portfolio useful when the optional Manus API is unavailable.
+// These are presentation records only; the API remains the source of truth when it responds.
+export const FALLBACK_PROJECTS: Project[] = [
+  { id: "fallback-zeuscontrol", title: "ZeusControl — AI-GP 1.0", slug: "zeuscontrol-ai-gp", description: "مركز قيادة عربي لإدارة أنظمة الذكاء الاصطناعي والبنية التحتية وتوليد مخرجات دورة تطوير البرمجيات.", tech: "AI/ML · SQL · Regex · Git", category: "AI Orchestration", image: "", url: null, featured: true, createdAt: "2026-01-01" },
+  { id: "fallback-glory-store", title: "GLORY STORE", slug: "glory-store", description: "منصة عربية لشحن الألعاب والخدمات الرقمية مع عضويات وأسعار متعددة العملات.", tech: "React · Express · PostgreSQL · JWT", category: "Game Top-up", image: "", url: null, featured: true, createdAt: "2026-01-02" },
+  { id: "fallback-game-shop", title: "Game Shop", slug: "game-shop", description: "واجهة متجر عربية لخدمات شحن الألعاب مع شبكة ألعاب ولوحة إدارة للباقات والطلبات.", tech: "React · Tailwind · REST API", category: "Game Shop", image: "", url: null, featured: false, createdAt: "2026-01-03" },
+  { id: "fallback-lms", title: "Moataz Sobhi Lawi — LMS", slug: "moataz-lawi-lms", description: "نظام إدارة تعليمي عربي بلوحة تحكم للكورسات والامتحانات والطلاب وسجلات التدقيق.", tech: "Python · Git · REST API", category: "Education Platform", image: "", url: null, featured: true, createdAt: "2026-01-04" },
+  { id: "fallback-wabot", title: "WaBot Pro", slug: "wabot-pro", description: "منصة SaaS لإدارة WhatsApp وTelegram والبوتات والعملاء والعمليات التجارية.", tech: "Node.js · React · PostgreSQL · REST API", category: "Automation SaaS", image: "", url: null, featured: true, createdAt: "2026-01-05" },
+  { id: "fallback-moalim", title: "Moalim Khowsosi Online", slug: "moalim-khowsosi-online", description: "منصة تعليمية بنظام نقاط وتحديات ولوحات تحكم للطلاب والكورسات والعمليات المالية.", tech: "Next.js · Prisma · Tailwind · REST API", category: "Learning Management", image: "", url: null, featured: false, createdAt: "2026-01-06" },
+  { id: "fallback-learning-paths", title: "منصة التعلم — Learning Paths", slug: "learning-paths", description: "منصة لتعلم البرمجة والتصميم بمكتبة كورسات ومسارات مهنية وتقدم واختبارات.", tech: "Next.js · React · Node.js · GraphQL", category: "Learning Platform", image: "", url: null, featured: false, createdAt: "2026-01-07" },
+  { id: "fallback-megastore", title: "MEGASTORE", slug: "megastore", description: "متجر إلكتروني متعدد الفئات بواجهة إنجليزية وفلترة متقدمة للمنتجات والعلامات والأسعار.", tech: "React · Vite · TypeScript · REST API", category: "E-commerce", image: "", url: null, featured: false, createdAt: "2026-01-08" },
+  { id: "fallback-center", title: "سنتر تعليمي v7", slug: "education-center-v7", description: "نظام إدارة تعليمي عربي متعدد الأدوار مع حماية للمحتوى واشتراكات وتقارير.", tech: "React · Vue-style UI · REST API", category: "Education Security", image: "", url: null, featured: false, createdAt: "2026-01-09" },
+  { id: "fallback-zeraki", title: "Zeraki — AI/MLOps Dashboard", slug: "zeraki-ai-mlops", description: "لوحة عربية لإدارة البيانات وتدريب نماذج الذكاء الاصطناعي ومراقبة الأداء.", tech: "Python · OCR · Machine Learning", category: "AI / MLOps", image: "", url: null, featured: true, createdAt: "2026-01-10" },
+];
+
+function fallbackProjects({ page, limit, q, category }: { page: number; limit: number; q: string; category: string }): Paginated<Project> {
+  const needle = q.trim().toLocaleLowerCase();
+  const filtered = FALLBACK_PROJECTS.filter((project) => {
+    const matchesSearch = !needle || `${project.title} ${project.description} ${project.tech}`.toLocaleLowerCase().includes(needle);
+    return matchesSearch && (!category || project.category === category);
+  });
+  const start = (page - 1) * limit;
+  return { items: filtered.slice(start, start + limit), page, limit, total: filtered.length, pages: Math.max(1, Math.ceil(filtered.length / limit)) };
+}
 export interface BlogPost {
   id: string;
   title: string;
@@ -137,7 +162,16 @@ export function useProjects(opts: {
   const query = qs({ page, limit, q, category, featured: featured ? true : "" });
   return useQuery<Paginated<Project>>({
     queryKey: ["projects", page, limit, q, category, featured],
-    queryFn: () => apiGet<Paginated<Project>>(`/projects${query}`),
+    queryFn: async () => {
+      try {
+        const response = await apiGet<Paginated<Project>>(`/projects${query}`);
+        return response.items?.length || response.total > 0
+          ? response
+          : fallbackProjects({ page, limit, q, category });
+      } catch {
+        return fallbackProjects({ page, limit, q, category });
+      }
+    },
     staleTime: 30_000,
   });
 }
