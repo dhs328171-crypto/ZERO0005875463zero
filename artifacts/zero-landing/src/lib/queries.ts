@@ -169,9 +169,20 @@ export function useProjects(opts: {
     queryFn: async () => {
       try {
         const response = await apiGet<Paginated<Project>>(`/projects${query}`);
-        return response.items?.length || response.total > 0
-          ? response
-          : fallbackProjects({ page, limit, q, category });
+        const fallback = fallbackProjects({ page: 1, limit: FALLBACK_PROJECTS.length, q, category });
+        const remoteItems = response.items ?? [];
+        const knownKeys = new Set(remoteItems.map((project) => project.slug || project.title));
+        const mergedItems = [
+          ...remoteItems,
+          ...fallback.items.filter((project) => !knownKeys.has(project.slug || project.title)),
+        ];
+        const start = (page - 1) * limit;
+        return {
+          ...response,
+          items: mergedItems.slice(start, start + limit),
+          total: mergedItems.length,
+          pages: Math.max(1, Math.ceil(mergedItems.length / limit)),
+        };
       } catch {
         return fallbackProjects({ page, limit, q, category });
       }
