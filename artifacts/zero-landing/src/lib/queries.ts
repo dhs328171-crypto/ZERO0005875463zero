@@ -169,9 +169,29 @@ export function useProjects(opts: {
     queryFn: async () => {
       try {
         const response = await apiGet<Paginated<Project>>(`/projects${query}`);
-        return response.items?.length || response.total > 0
-          ? response
-          : fallbackProjects({ page, limit, q, category });
+        const fallback = fallbackProjects({ page: 1, limit: FALLBACK_PROJECTS.length, q, category });
+        const remoteItems = response.items ?? [];
+        const projectKey = (project: Project) => `${project.slug || project.title}`.trim().toLocaleLowerCase();
+        const remoteByKey = new Map(remoteItems.map((project) => [projectKey(project), project]));
+        const fallbackByKey = new Map(fallback.items.map((project) => [projectKey(project), project]));
+        const mergedItems = Array.from(new Set([...fallback.items.map(projectKey), ...remoteItems.map(projectKey)])).map((key) => {
+          const fallbackProject = fallbackByKey.get(key);
+          const remoteProject = remoteByKey.get(key);
+          if (!remoteProject) return fallbackProject!;
+          return {
+            ...fallbackProject,
+            ...remoteProject,
+            image: remoteProject.image || fallbackProject?.image || "",
+            url: remoteProject.url || fallbackProject?.url || null,
+          };
+        });
+        const start = (page - 1) * limit;
+        return {
+          ...response,
+          items: mergedItems.slice(start, start + limit),
+          total: mergedItems.length,
+          pages: Math.max(1, Math.ceil(mergedItems.length / limit)),
+        };
       } catch {
         return fallbackProjects({ page, limit, q, category });
       }
