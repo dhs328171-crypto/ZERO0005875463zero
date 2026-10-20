@@ -85,6 +85,7 @@ const Tools           = lazy(() => import("@/pages/tools"));
 const Calculator      = lazy(() => import("@/pages/calculator"));
 const LinkRedirect    = lazy(() => import("@/pages/link-redirect"));
 const Resources       = lazy(() => import("@/pages/resources"));
+const ContentStudio   = lazy(() => import("@/pages/content-studio"));
 const AdminCV         = lazy(() => import("@/pages/cv"));
 
 // ── Admin pages ───────────────────────────────────────────────────────────
@@ -179,6 +180,7 @@ function PublicRoutes() {
         <Route path="/tools"><Tools /></Route>
         <Route path="/calculator"><Calculator /></Route>
         <Route path="/resources"><Resources /></Route>
+        <Route path="/content-studio"><ContentStudio /></Route>
         <Route path="/admincv"><AdminCV /></Route>
 
         <Route><NotFound /></Route>
