@@ -1,5 +1,5 @@
 // ZERO API client — use the managed Manus backend in production and same-origin locally.
-const configuredApiUrl = String(import.meta.env.VITE_API_URL || "https://3000-i5o0jbr8x1zvw3mthf8sx-44b6d5a2.sg2.manus.computer").trim();
+const configuredApiUrl = String(import.meta.env.VITE_API_URL || "").trim();
 const API_ORIGIN = configuredApiUrl.replace(/\/$/, "").replace(/\/api$/, "");
 const API_BASE = `${API_ORIGIN}/api`;
 const REQUEST_TIMEOUT_MS = 15_000;

@@ -15,7 +15,7 @@ if (Number.isNaN(port) || port <= 0) {
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const basePath = env.BASE_PATH ?? '/';
-  const apiTarget = (env.VITE_API_URL || 'https://3000-i5o0jbr8x1zvw3mthf8sx-44b6d5a2.sg2.manus.computer').replace(/\/$/, '');
+  const apiTarget = (env.VITE_API_URL || 'http://localhost:3000').replace(/\/$/, '');
 
   return {
   base: basePath,
