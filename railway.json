@@ -1,0 +1,10 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "buildCommand": "pnpm --filter @workspace/zero-landing build"
+  },
+  "deploy": {
+    "startCommand": "pnpm --filter @workspace/zero-landing serve",
+    "healthcheckPath": "/"
+  }
+}
